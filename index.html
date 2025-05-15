@@ -22,7 +22,7 @@
 
   <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-gray-200">
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-gray-200 min-h-screen flex flex-col">
 
   <!-- Header -->
   <header class="bg-gray-800 bg-opacity-60 backdrop-blur-lg shadow-lg fixed top-0 w-full z-50">
@@ -82,29 +82,48 @@
 
     <!-- About Section -->
     <section id="about" class="max-w-7xl mx-auto px-6 py-24">
-        <div class="flex flex-col md:flex-row items-center md:space-x-12 space-y-8 md:space-y-0">
+      <div class="flex flex-col md:flex-row items-center md:space-x-12 space-y-8 md:space-y-0">
+        
+        <!-- Your Image -->
+        <img src="jb.jpg" alt="Jack Brayan" class="w-64 h-64 object-cover rounded-full shadow-2xl border-4 border-blue-500">
+    
+        <!-- Text Section -->
+        <div class="text-center md:text-left">
+          <h2 class="text-5xl font-extrabold text-white mb-6">About Me</h2>
           
-          <!-- Your Image -->
-          <img src="jb.jpg" alt="Jack Brayan" class="w-64 h-64 object-cover rounded-full shadow-2xl border-4 border-blue-500">
-      
-          <!-- Text Section -->
-          <div class="text-center md:text-left">
-            <h2 class="text-5xl font-extrabold text-white mb-6">About Me</h2>
-            
-            <p class="text-2xl text-gray-300 mb-6 leading-relaxed">
-              I am a <span id="typewriter" class="font-bold text-blue-400"></span>
-            </p>
-      
-            <p class="text-lg text-gray-400 leading-relaxed mb-4">
-              I'm <strong class="text-white">Eyoum Atock Jean-Jacques Brayan</strong> aka <b class="text-white">Jack Brayan</b>, a Software Engineer riding the digital waves for 5 years. My heart beats for Big Data, Artificial Intelligence, and building systems that don't just work — they impress.
-            </p>
-      
-            <p class="text-lg text-gray-400">
-              I balance code with culture: a lover of<em class="text-green-400"> cooking, music, art & fashion</em> , and a connoisseur of clean design, business finesse, and data-driven decision-making.
-            </p>
+          <p class="text-2xl text-gray-300 mb-6 leading-relaxed">
+            I am a <span id="typewriter" class="font-bold text-blue-400"></span>
+          </p>
+    
+          <p class="text-lg text-gray-400 mb-6 leading-relaxed">
+            I'm <strong class="text-white">Eyoum Atock Jean-Jacques Brayan</strong> aka <b class="text-white">Jack Brayan</b>, a Software Engineer riding the digital waves for 5 years. My heart beats for Big Data, Artificial Intelligence, and building systems that don't just work — they impress.
+          </p>
+    
+          <p class="text-lg text-gray-400 mb-10">
+            I balance code with culture: a lover of <em class="text-green-400">cooking, music, art & fashion</em>, and a connoisseur of clean design, business finesse, and data-driven decision-making.
+          </p>
+    
+          <!-- CV Download Buttons -->
+          <div class="flex justify-center md:justify-start space-x-6">
+            <!-- French CV Button -->
+            <a href="cv_JB_FR.pdf" download
+              class="inline-flex items-center space-x-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold shadow-lg transition-colors duration-300">
+              <i class="fas fa-file-download text-xl"></i>
+              <span>Télécharger CV (FR)</span>
+            </a>
+    
+            <!-- English CV Button -->
+            <a href="cv_JB_EN.pdf" download
+              class="inline-flex items-center space-x-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white font-semibold shadow-lg transition-colors duration-300">
+              <i class="fas fa-file-download text-xl"></i>
+              <span>Download CV (EN)</span>
+            </a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    
+    
       
       <!-- Education Section -->
 <section id="education" class="py-20 bg-gray-800 bg-opacity-30 backdrop-blur-md">
