@@ -1,3 +1,12 @@
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
+
 const titles = [
     { text: 'Software Developer', color: 'text-blue-400' },
     { text: 'Data Analyst/Engineer', color: 'text-purple-400' },
