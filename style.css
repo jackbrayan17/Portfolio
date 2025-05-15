@@ -44,3 +44,66 @@
     }
   }
   
+  #tech-stack {
+    background: transparent;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: #00ffe7;
+  }
+  
+  .tech-carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  .tech-track {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    animation: scroll-left 20s linear infinite alternate;
+  }
+  
+  .tech-track img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease;
+  }
+  
+  .tech-track img:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Animation */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(-100% + 100vw));
+    }
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(calc(-50%));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-slide {
+    animation: slide 30s linear infinite;
+  }
+  
