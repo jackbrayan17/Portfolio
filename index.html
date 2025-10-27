@@ -1,296 +1,391 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JB's Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <!-- Base SEO -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Eyoum Atock Jean-Jacques Brayan (Jack Brayan) | Ingénieur Logiciel, IA & Big Data</title>
+  <meta name="description" content="Portfolio de Jack Brayan — Ingénieur Logiciel & Freelance Full-Stack (IA & Big Data). Projets: Zevaba, EEUEZ-Market, EEUEZ-Job, EEUEZ-Menu, Mubaku, On-Black, NAUMUR." />
+  <meta name="keywords" content="jack brayan, eyoum atock, ingénieur logiciel, IA, big data, full-stack, django, laravel, react, next.js, vercel, cpanel, yaoundé" />
+  <link rel="canonical" href="https://jackbrayan17.vercel.app/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b1f3a" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portfolio — Jack Brayan | Ingénieur Logiciel, IA & Big Data" />
+  <meta property="og:description" content="Projets web & data: Zevaba, EEUEZ-Market, EEUEZ-Job, EEUEZ-Menu, Mubaku, On-Black, NAUMUR." />
+  <meta property="og:url" content="https://jackbrayan17.vercel.app/" />
+  <meta property="og:image" content="https://jackbrayan17.vercel.app/jb_og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portfolio — Jack Brayan" />
+  <meta name="twitter:description" content="Ingénieur Logiciel & Full-Stack — IA & Big Data" />
+  <meta name="twitter:image" content="https://jackbrayan17.vercel.app/jb_og.jpg" />
+
+  <!-- Preconnect (perf) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Tailwind (v3) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icônes -->
   <link rel="icon" type="image/png" href="jb_logo.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  integrity="sha512-RXf+QSDCUQs6vj+Y2f4NLhoPazTA/gkGEXLJJLLfi5yRvDqxn6VsgGAaHo9dZYkTfLZNVVRhk1FdYyqS/fWgw=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-<!-- AOS Animation Library -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  rel="stylesheet"
-/>
+  <!-- AOS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
-  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+  <!-- Styles additionnels -->
+  <style>
+    html{scroll-behavior:smooth}
+    .glass{backdrop-filter: blur(10px); background: rgba(17,24,39,.6)}
+    /* Animation ruban */
+    .shine{position:relative;overflow:hidden}
+    .shine:after{
+      content:""; position:absolute; inset:0; transform: skewX(-30deg) translateX(-150%);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+      transition: transform .8s ease;
+    }
+    .shine:hover:after{ transform: skewX(-30deg) translateX(150%) }
+    /* Marquee tech */
+    @keyframes slideTrack{ 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .animate-track{ animation: slideTrack 25s linear infinite }
+    /* Focus rings accessibles */
+    a:focus, button:focus{ outline: 3px solid #60a5fa; outline-offset: 3px; }
+  </style>
+
+  <!-- JSON-LD Person + Site + Liste Projets -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Eyoum Atock Jean-Jacques Brayan",
+    "alternateName":"Jack Brayan",
+    "jobTitle":"Ingénieur Logiciel & Full-Stack — IA & Big Data",
+    "url":"https://jackbrayan17.vercel.app/",
+    "email":"mailto:jackbrayan1707@gmail.com",
+    "telephone":"+237694103585",
+    "address":{"@type":"PostalAddress","addressLocality":"Yaoundé","addressCountry":"CM"},
+    "sameAs":[
+      "https://github.com/jackbrayan17",
+      "https://www.linkedin.com/in/eyoum-atock-jean-jacques-brayan-82a6a1295/",
+      "https://huggingface.co/JackBrayan17",
+      "https://zevaba.com",
+      "http://eeuez-market.com"
+    ]
+  }
+  </script>
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-gray-200 min-h-screen flex flex-col">
+
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-gray-100 min-h-screen flex flex-col">
+  <a href="#main" class="sr-only focus:not-sr-only focus:block focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white">Aller au contenu</a>
 
   <!-- Header -->
-  <header class="bg-gray-800 bg-opacity-60 backdrop-blur-lg shadow-lg fixed top-0 w-full z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      
+  <header class="fixed top-0 w-full z-50 glass border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
       <!-- Logo + Name -->
-      <div class="flex items-center space-x-3">
-        <img src="jb_logo.png" alt="Jack Brayan Logo" class="w-12 h-12 rounded-full">
-        <span class="text-white text-2xl md:text-3xl font-extrabold tracking-wide">Jack Brayan</span>
-      </div>
-      
+      <a href="#" class="flex items-center gap-3 group" aria-label="Accueil">
+        <img src="jb_logo.png" alt="Logo Jack Brayan" width="48" height="48" class="w-10 h-10 rounded-full ring-2 ring-blue-500/40 group-hover:ring-blue-400 transition"/>
+        <span class="text-xl md:text-2xl font-extrabold tracking-wide">
+          <span class="text-white">Jack</span> <span class="text-blue-400">Brayan</span>
+        </span>
+      </a>
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center space-x-8">
-        <a href="#about" class="text-gray-300 hover:text-blue-400 text-lg transition duration-300">About</a>
-        <a href="#education" class="text-gray-300 hover:text-blue-400 text-lg transition duration-300">Education</a>
-        <a href="#projects" class="text-gray-300 hover:text-blue-400 text-lg transition duration-300">Projects</a>
-        <a href="#tech-stack" class="text-gray-300 hover:text-blue-400 text-lg transition duration-300">Tech Stack</a>
-        <a href="#contact" class="text-gray-300 hover:text-blue-400 text-lg transition duration-300">Contact</a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#about" class="text-gray-300 hover:text-blue-400 transition">À propos</a>
+        <a href="#education" class="text-gray-300 hover:text-blue-400 transition">Formation</a>
+        <a href="#projects" class="text-gray-300 hover:text-blue-400 transition">Projets</a>
+        <a href="#tech-stack" class="text-gray-300 hover:text-blue-400 transition">Stack</a>
+        <a href="#contact" class="text-gray-300 hover:text-blue-400 transition">Contact</a>
       </nav>
-  
-      <!-- Hamburger Button -->
-      <button id="hamburger-btn" class="md:hidden focus:outline-none" aria-label="Toggle menu">
-        <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+      <!-- Hamburger -->
+      <button id="hamburger-btn" class="md:hidden p-2 rounded-lg hover:bg-white/10" aria-label="Ouvrir le menu">
+        <i class="fas fa-bars text-xl"></i>
       </button>
     </div>
   </header>
-  
+
   <!-- Mobile Nav -->
-  <nav id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 backdrop-blur-md z-50 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-    <div class="flex flex-col items-center justify-center h-full space-y-10 text-2xl text-gray-300 font-semibold">
-      <a href="#about" class="hover:text-blue-400 transition" onclick="toggleMenu()">About</a>
-      <a href="#education" class="hover:text-blue-400 transition" onclick="toggleMenu()">Education</a>
-      <a href="#projects" class="hover:text-blue-400 transition" onclick="toggleMenu()">Projects</a>
-      <a href="#tech-stack" class="hover:text-blue-400 transition" onclick="toggleMenu()">Tech Stack</a>
+  <nav id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-gray-900/95 backdrop-blur-md z-50 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+    <div class="flex flex-col items-center justify-center h-full gap-8 text-2xl font-semibold">
+      <a href="#about" class="hover:text-blue-400 transition" onclick="toggleMenu()">À propos</a>
+      <a href="#education" class="hover:text-blue-400 transition" onclick="toggleMenu()">Formation</a>
+      <a href="#projects" class="hover:text-blue-400 transition" onclick="toggleMenu()">Projets</a>
+      <a href="#tech-stack" class="hover:text-blue-400 transition" onclick="toggleMenu()">Stack</a>
       <a href="#contact" class="hover:text-blue-400 transition" onclick="toggleMenu()">Contact</a>
-      <button onclick="toggleMenu()" class="mt-12 text-lg text-blue-400 hover:text-blue-600 transition">Close</button>
+      <button onclick="toggleMenu()" class="mt-10 text-lg text-blue-400 hover:text-blue-600 transition">Fermer</button>
     </div>
   </nav>
-  
-  <script>
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-  
-    function toggleMenu() {
-      mobileMenu.classList.toggle('-translate-x-full');
-    }
-  
-    hamburgerBtn.addEventListener('click', toggleMenu);
-  </script>
-  
-  
 
-  <main class="pt-28">
+  <main id="main" class="pt-24 md:pt-28">
+    <!-- Hero / About -->
+    <section id="about" class="max-w-7xl mx-auto px-4 md:px-6 py-20">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <img src="jb.jpg" alt="Portrait de Jack Brayan" loading="lazy"
+             class="w-56 h-56 md:w-64 md:h-64 object-cover rounded-full shadow-2xl border-4 border-blue-500 mx-auto md:mx-0 will-change-transform hover:scale-105 transition-transform duration-500" data-aos="zoom-in"/>
 
-    <!-- About Section -->
-    <section id="about" class="max-w-7xl mx-auto px-6 py-24">
-      <div class="flex flex-col md:flex-row items-center md:space-x-12 space-y-8 md:space-y-0">
-        
-        <!-- Your Image -->
-        <img src="jb.jpg" alt="Jack Brayan" class="w-64 h-64 object-cover rounded-full shadow-2xl border-4 border-blue-500">
-    
-        <!-- Text Section -->
-        <div class="text-center md:text-left">
-          <h2 class="text-5xl font-extrabold text-white mb-6">About Me</h2>
-          
-          <p class="text-2xl text-gray-300 mb-6 leading-relaxed">
-            I am a <span id="typewriter" class="font-bold text-blue-400"></span>
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold mb-4" data-aos="fade-up">
+            Ingénieur Logiciel <span class="text-blue-400">& Full-Stack</span> — IA & Big Data
+          </h1>
+          <p class="text-xl text-gray-300 mb-4">
+            Je suis <strong class="text-white">Eyoum Atock Jean-Jacques Brayan</strong> (alias <b class="text-white">Jack Brayan</b>).
+            J’orchestre des produits web/data du design au déploiement — robustes, élégants, SEO-optimisés.
           </p>
-    
-          <p class="text-lg text-gray-400 mb-6 leading-relaxed">
-            I'm <strong class="text-white">Eyoum Atock Jean-Jacques Brayan</strong> aka <b class="text-white">Jack Brayan</b>, a Software Engineer riding the digital waves for 5 years. My heart beats for Big Data, Artificial Intelligence, and building systems that don't just work — they impress.
+          <p class="text-gray-400 mb-8">
+            Amoureux de <em class="text-green-400">musique, mode & design</em>, je transforme idées et données en expériences utiles.
           </p>
-    
-          <p class="text-lg text-gray-400 mb-10">
-            I balance code with culture: a lover of <em class="text-green-400">cooking, music, art & fashion</em>, and a connoisseur of clean design, business finesse, and data-driven decision-making.
-          </p>
-    
-          <!-- CV Download Buttons -->
-          <div class="flex justify-center md:justify-start space-x-6">
-            <!-- French CV Button -->
-            <a href="cv_JB_FR.pdf" download
-              class="inline-flex items-center space-x-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold shadow-lg transition-colors duration-300">
-              <i class="fas fa-file-download text-xl"></i>
-              <span>Télécharger CV (FR)</span>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="cv_JB_FR.pdf" download class="shine inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition">
+              <i class="fas fa-file-download text-lg"></i> Télécharger CV (FR)
             </a>
-    
-            <!-- English CV Button -->
-            <a href="cv_JB_EN.pdf" download
-              class="inline-flex items-center space-x-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white font-semibold shadow-lg transition-colors duration-300">
-              <i class="fas fa-file-download text-xl"></i>
-              <span>Download CV (EN)</span>
+            <a href="cv_JB_EN.pdf" download class="shine inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold transition">
+              <i class="fas fa-file-download text-lg"></i> Download CV (EN)
+            </a>
+            <a href="mailto:jackbrayan1707@gmail.com" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-white/20 hover:border-white/40 hover:bg-white/5 transition">
+              <i class="fas fa-envelope"></i> Me contacter
             </a>
           </div>
         </div>
       </div>
     </section>
-    
-    
-      
-      <!-- Education Section -->
-<section id="education" class="py-20 bg-gray-800 bg-opacity-30 backdrop-blur-md">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-12 text-center text-white">🎓 My Academic Journey</h2>
 
-    <div class="relative border-l border-gray-600 ml-6">
+    <!-- Education -->
+    <section id="education" class="py-16 bg-white/[.03] border-y border-white/10">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">🎓 Parcours Académique</h2>
 
-      <!-- Laval Bilingual College -->
-      <div class="mb-12 ml-6 group" data-aos="fade-right">
-        <div class="absolute -left-3.5 w-7 h-7 bg-blue-500 rounded-full flex items-center justify-center shadow-lg group-hover:bg-blue-600 transition duration-300">
-          <i class="fas fa-school text-white text-sm"></i>
-        </div>
-        <div class="pl-8">
-          <h3 class="text-2xl font-semibold text-white group-hover:text-blue-400 transition duration-300">Laval Bilingual College, Douala</h3>
-          <time class="text-gray-400 text-sm">Sep 2013 - Aug 2020</time>
-          <p class="text-gray-300 mt-2 leading-relaxed">Completed my GCE Advanced Level with 5 papers in the Science field. This was the crucible where my love for problem-solving and computing began to take form.</p>
-        </div>
-      </div>
+        <div class="relative border-l border-gray-600 ml-4 md:ml-6">
+          <div class="mb-10 ml-6 group" data-aos="fade-right">
+            <div class="absolute -left-3.5 w-7 h-7 bg-blue-500 rounded-full flex items-center justify-center shadow-lg group-hover:bg-blue-600 transition">
+              <i class="fas fa-school text-white text-sm"></i>
+            </div>
+            <div class="pl-8">
+              <h3 class="text-2xl font-semibold group-hover:text-blue-400 transition">Laval Bilingual College, Douala</h3>
+              <time class="text-gray-400 text-sm">2013 — 2020</time>
+              <p class="text-gray-300 mt-2">GCE A-Level (Sciences). Premiers pas en algorithmique & résolution de problèmes.</p>
+            </div>
+          </div>
 
-      <!-- IAI Yaoundé -->
-      <div class="mb-12 ml-6 group" data-aos="fade-down">
-        <div class="absolute -left-3.5 w-7 h-7 bg-green-500 rounded-full flex items-center justify-center shadow-lg group-hover:bg-green-600 transition duration-300">
-          <i class="fas fa-laptop-code text-white text-sm"></i>
-        </div>
-        <div class="pl-8">
-          <h3 class="text-2xl font-semibold text-white group-hover:text-green-400 transition duration-300">Institut Africain d'Informatique (IAI), Yaoundé</h3>
-          <time class="text-gray-400 text-sm">Oct 2020 - Sep 2023</time>
-          <p class="text-gray-300 mt-2 leading-relaxed">Earned my Bachelor’s degree in Software Engineering. Here, I honed my skills in web development, software architecture, and algorithmic thinking — laying down the foundations of the engineer I am today.</p>
-        </div>
-      </div>
+          <div class="mb-10 ml-6 group" data-aos="fade-down">
+            <div class="absolute -left-3.5 w-7 h-7 bg-green-500 rounded-full flex items-center justify-center shadow-lg group-hover:bg-green-600 transition">
+              <i class="fas fa-laptop-code text-white text-sm"></i>
+            </div>
+            <div class="pl-8">
+              <h3 class="text-2xl font-semibold group-hover:text-green-400 transition">IAI Cameroun, Yaoundé</h3>
+              <time class="text-gray-400 text-sm">2019 — 2023</time>
+              <p class="text-gray-300 mt-2">Licence en Génie Logiciel — web, archi logicielle, bases de données.</p>
+            </div>
+          </div>
 
-      <!-- Keyce Informatique & IA -->
-      <div class="mb-12 ml-6 group" data-aos="fade-left">
-        <div class="absolute -left-3.5 w-7 h-7 bg-purple-500 rounded-full flex items-center justify-center shadow-lg group-hover:bg-purple-600 transition duration-300">
-          <i class="fas fa-brain text-white text-sm"></i>
-        </div>
-        <div class="pl-8">
-          <h3 class="text-2xl font-semibold text-white group-hover:text-purple-400 transition duration-300">Keyce Informatique & IA</h3>
-          <time class="text-gray-400 text-sm">Oct 2023 - Aug 2025 (Ongoing)</time>
-          <p class="text-gray-300 mt-2 leading-relaxed">Currently pursuing my Master’s in Big Data & Artificial Intelligence. Diving deep into data pipelines, cloud computing, AI models, and decision science. The journey continues, and the best is yet to come.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-800 bg-opacity-30 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-8 text-center">Projects</h2>
-
-        <!-- GitHub Projects -->
-        <div class="mb-16">
-          <h3 class="text-3xl mb-6 flex items-center text-blue-400">
-            <i class="fab fa-github mr-3"></i> GitHub Projects
-          </h3>
-          <div id="github-projects" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        </div>
-
-        <!-- Hugging Face Projects -->
-        <div>
-          <h3 class="text-3xl mb-6 flex items-center text-purple-400">
-            <i class="fas fa-brain mr-3"></i> Hugging Face Spaces
-          </h3>
-          <div id="huggingface-projects" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+          <div class="mb-6 ml-6 group" data-aos="fade-left">
+            <div class="absolute -left-3.5 w-7 h-7 bg-purple-500 rounded-full flex items-center justify-center shadow-lg group-hover:bg-purple-600 transition">
+              <i class="fas fa-brain text-white text-sm"></i>
+            </div>
+            <div class="pl-8">
+              <h3 class="text-2xl font-semibold group-hover:text-purple-400 transition">Keyce Informatique & IA, Yaoundé</h3>
+              <time class="text-gray-400 text-sm">2024 — 2025 (M2, cours du soir)</time>
+              <p class="text-gray-300 mt-2">Big Data, IA appliquée, pipelines & systèmes distribués.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-   <section id="tech-stack" class="max-w-7xl mx-auto px-6 py-20">
-  <h2 class="text-4xl font-bold mb-8 text-center text-gray-300"> Tech Arsenal </h2>
-  <p class="text-center mb-6 text-lg text-gray-400">Tools that keep my code sharp and projects clean.</p>
+    <!-- Projects -->
+    <section id="projects" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Projets en Production</h2>
 
-  <div class="overflow-hidden relative w-full">
-    <div class="flex items-center space-x-10 animate-slide" id="tech-track">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original-wordmark.svg" alt="Streamlit" class="w-14 h-14 hover:opacity-80 transition-opacity" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" class="w-14 h-14 hover:opacity-80 transition-opacity" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="w-14 h-14 hover:opacity-80 transition-opacity" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R" class="w-14 h-14 hover:opacity-80 transition-opacity" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="w-14 h-14 hover:opacity-80 transition-opacity" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" class="w-14 h-14 hover:opacity-80 transition-opacity" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="w-14 h-14 hover:opacity-80 transition-opacity">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-14 h-14 hover:opacity-80 transition-opacity">
-    </div>
-  </div>
-</section>
- 
-    <!-- Contact Section -->
-    <section id="contact" class="max-w-7xl mx-auto px-6 py-20">
-      <h2 class="text-4xl font-bold mb-8 text-center">Contact</h2>
-      <p class="text-center mb-6 text-lg">Let's build something powerful together.</p>
-      <div class="flex flex-col md:flex-row md:justify-center md:space-x-10 text-center text-lg">
-        <p><i class="fas fa-envelope mr-3 text-blue-400"></i> jackbrayan1707@gmail.com</p>
-        <p class="mt-4 md:mt-0"><i class="fas fa-map-marker-alt mr-3 text-blue-400"></i> Yaounde, Cameroon</p>
-      </div>
-      <div class="flex justify-center mt-8 space-x-6">
-        <a href="https://github.com/jackbrayan17" target="_blank"><i class="fab fa-github fa-2x text-gray-300 hover:text-blue-400"></i></a>
-        <a href="https://huggingface.co/JackBrayan17" target="_blank"><i class="fas fa-brain fa-2x text-gray-300 hover:text-purple-400"></i></a>
+        <!-- Cartes projets hébergés -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Zevaba -->
+          <a href="http://zevaba.com/" target="_blank" rel="noopener"
+             class="shine block p-5 rounded-xl bg-white/[.03] border border-white/10 hover:border-blue-500/40 hover:scale-[1.02] transition will-change-transform"
+             aria-label="Zevaba — réseau social intellectuel">
+            <h3 class="text-xl font-semibold mb-2">Zevaba</h3>
+            <p class="text-gray-300 mb-3">Réseau social intellectuel (Django, cPanel).</p>
+            <span class="inline-flex items-center gap-2 text-blue-400">zevaba.com <i class="fas fa-arrow-up-right-from-square"></i></span>
+          </a>
+
+          <!-- EEUEZ Market -->
+          <a href="http://eeuez-market.com/" target="_blank" rel="noopener"
+             class="shine block p-5 rounded-xl bg-white/[.03] border border-white/10 hover:border-blue-500/40 hover:scale-[1.02] transition"
+             aria-label="EEUEZ-Market — e-commerce">
+            <h3 class="text-xl font-semibold mb-2">EEUEZ-Market</h3>
+            <p class="text-gray-300 mb-3">Plateforme e-commerce (Laravel, MySQL).</p>
+            <span class="inline-flex items-center gap-2 text-blue-400">eeuez-market.com <i class="fas fa-arrow-up-right-from-square"></i></span>
+          </a>
+
+          <!-- EEUEZ Job -->
+          <a href="https://eeuez-job.com/" target="_blank" rel="noopener"
+             class="shine block p-5 rounded-xl bg-white/[.03] border border-white/10 hover:border-blue-500/40 hover:scale-[1.02] transition"
+             aria-label="EEUEZ-Job — portail emplois">
+            <h3 class="text-xl font-semibold mb-2">EEUEZ-Job</h3>
+            <p class="text-gray-300 mb-3">Portail de recrutement interactif.</p>
+            <span class="inline-flex items-center gap-2 text-blue-400">eeuez-job.com <i class="fas fa-arrow-up-right-from-square"></i></span>
+          </a>
+
+          <!-- EEUEZ Menu -->
+          <a href="https://eeuez-menu.com/" target="_blank" rel="noopener"
+             class="shine block p-5 rounded-xl bg-white/[.03] border border-white/10 hover:border-blue-500/40 hover:scale-[1.02] transition"
+             aria-label="EEUEZ-Menu — menus digitaux">
+            <h3 class="text-xl font-semibold mb-2">EEUEZ-Menu</h3>
+            <p class="text-gray-300 mb-3">Digitalisation de menus pour restaurants.</p>
+            <span class="inline-flex items-center gap-2 text-blue-400">eeuez-menu.com <i class="fas fa-arrow-up-right-from-square"></i></span>
+          </a>
+
+          <!-- Mubaku Loanguard -->
+          <a href="https://mubaku-loanguard.com/" target="_blank" rel="noopener"
+             class="shine block p-5 rounded-xl bg-white/[.03] border border-white/10 hover:border-blue-500/40 hover:scale-[1.02] transition"
+             aria-label="Mubaku Loanguard — loan appraisal app">
+            <h3 class="text-xl font-semibold mb-2">Mubaku — Loan Appraisal</h3>
+            <p class="text-gray-300 mb-3">App d’évaluation de prêts (Django).</p>
+            <span class="inline-flex items-center gap-2 text-blue-400">mubaku-loanguard.com <i class="fas fa-arrow-up-right-from-square"></i></span>
+          </a>
+
+          <!-- Mubaku Hightech -->
+          <a href="https://mubaku-hightech.com/" target="_blank" rel="noopener"
+             class="shine block p-5 rounded-xl bg-white/[.03] border border-white/10 hover:border-blue-500/40 hover:scale-[1.02] transition"
+             aria-label="Mubaku HighTech — landing page">
+            <h3 class="text-xl font-semibold mb-2">Mubaku — HighTech</h3>
+            <p class="text-gray-300 mb-3">Landing page moderne & responsive.</p>
+            <span class="inline-flex items-center gap-2 text-blue-400">mubaku-hightech.com <i class="fas fa-arrow-up-right-from-square"></i></span>
+          </a>
+
+          <!-- On-Black -->
+          <a href="https://on-black.vercel.app/" target="_blank" rel="noopener"
+             class="shine block p-5 rounded-xl bg-white/[.03] border border-white/10 hover:border-blue-500/40 hover:scale-[1.02] transition"
+             aria-label="On Black Streetwear — vitrine">
+            <h3 class="text-xl font-semibold mb-2">On-Black Streetwear</h3>
+            <p class="text-gray-300 mb-3">Vitrine & boutique (React, Tailwind).</p>
+            <span class="inline-flex items-center gap-2 text-blue-400">on-black.vercel.app <i class="fas fa-arrow-up-right-from-square"></i></span>
+          </a>
+
+          <!-- NAUMUR -->
+          <a href="https://naumur.vercel.app/" target="_blank" rel="noopener"
+             class="shine block p-5 rounded-xl bg-white/[.03] border border-white/10 hover:border-blue-500/40 hover:scale-[1.02] transition"
+             aria-label="NAUMUR — site cabinet">
+            <h3 class="text-xl font-semibold mb-2">NAUMUR</h3>
+            <p class="text-gray-300 mb-3">Site du cabinet — data & ops.</p>
+            <span class="inline-flex items-center gap-2 text-blue-400">naumur.vercel.app <i class="fas fa-arrow-up-right-from-square"></i></span>
+          </a>
+        </div>
+
+        <!-- Grille GitHub/HF (placeholders dynamiques si tu ajoutes un script plus tard) -->
+        <div class="mt-16 grid md:grid-cols-2 gap-8" aria-label="Autres projets">
+          <div>
+            <h3 class="text-2xl font-bold mb-4 flex items-center gap-3 text-blue-400"><i class="fab fa-github"></i> GitHub</h3>
+            <div id="github-projects" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Injecte dynamiquement si besoin -->
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-4 flex items-center gap-3 text-purple-400"><i class="fas fa-brain"></i> Hugging Face</h3>
+            <div id="huggingface-projects" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Injecte dynamiquement si besoin -->
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Tech Stack (marquee) -->
+    <section id="tech-stack" class="max-w-7xl mx-auto px-4 md:px-6 py-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-100">Tech Arsenal</h2>
+      <p class="text-center mb-10 text-lg text-gray-300">Outils qui rendent mes livrables solides & propres.</p>
+
+      <div class="relative overflow-hidden">
+        <div class="flex items-center gap-10 animate-track will-change-transform">
+          <!-- répété deux fois pour boucle sans couture -->
+          <div class="flex items-center gap-10">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-14 h-14 hover:scale-110 transition"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="w-14 h-14 hover:scale-110 transition"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" class="w-14 h-14 hover:scale-110 transition"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="w-14 h-14 hover:scale-110 transition"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="w-14 h-14 hover:scale-110 transition"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel" class="w-14 h-14 hover:scale-110 transition"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-14 h-14 hover:scale-110 transition"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-14 h-14 hover:scale-110 transition"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-14 h-14 hover:scale-110 transition"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="w-14 h-14 hover:scale-110 transition"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" class="w-14 h-14 hover:scale-110 transition"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-14 h-14 hover:scale-110 transition"/>
+          </div>
+          <div class="flex items-center gap-10" aria-hidden="true">
+            <!-- clone -->
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" class="w-14 h-14"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="" class="w-14 h-14"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="" class="w-14 h-14"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" class="w-14 h-14"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="" class="w-14 h-14"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="" class="w-14 h-14"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" class="w-14 h-14"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" class="w-14 h-14"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="" class="w-14 h-14"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="" class="w-14 h-14"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="" class="w-14 h-14"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="" class="w-14 h-14"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 md:px-6 py-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">Contact</h2>
+      <p class="text-center mb-6 text-lg">Construisons quelque chose de puissant ensemble.</p>
+
+      <div class="flex flex-col md:flex-row md:justify-center md:gap-10 text-center text-lg">
+        <p><i class="fas fa-envelope mr-3 text-blue-400"></i> <a class="hover:underline" href="mailto:jackbrayan1707@gmail.com">jackbrayan1707@gmail.com</a></p>
+        <p class="mt-4 md:mt-0"><i class="fas fa-map-marker-alt mr-3 text-blue-400"></i> Yaoundé, Cameroun</p>
+        <p class="mt-4 md:mt-0"><i class="fas fa-phone mr-3 text-blue-400"></i> <a href="tel:+237694103585" class="hover:underline">+237 694 10 35 85</a></p>
+      </div>
+
+      <div class="flex justify-center mt-8 gap-6 text-2xl">
+        <a href="https://github.com/jackbrayan17" target="_blank" rel="noopener" aria-label="GitHub" class="hover:scale-110 transition"><i class="fab fa-github"></i></a>
+        <a href="https://huggingface.co/JackBrayan17" target="_blank" rel="noopener" aria-label="Hugging Face" class="hover:scale-110 transition"><i class="fas fa-brain"></i></a>
+        <a href="https://www.linkedin.com/in/eyoum-atock-jean-jacques-brayan-82a6a1295/" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:scale-110 transition"><i class="fab fa-linkedin"></i></a>
+        <a href="https://wa.me/237694103585" target="_blank" rel="noopener" aria-label="WhatsApp" class="hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </section>
   </main>
 
-  <footer class="text-center py-8 text-gray-500 text-sm border-t border-gray-600">
-    <div class="flex justify-center space-x-6 mb-4">
-      <!-- TikTok -->
-      <a href="https://www.tiktok.com/@jackbrayan07" target="_blank" class="text-gray-400 hover:text-pink-500 transition duration-300 text-xl">
-        <i class="fab fa-tiktok"></i>
-      </a>
-  
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/eyoum-atock-jean-jacques-brayan-82a6a1295/" target="_blank" class="text-gray-400 hover:text-blue-600 transition duration-300 text-xl">
-        <i class="fab fa-linkedin"></i>
-      </a>
-  
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/jackbrayan17/" target="_blank" class="text-gray-400 hover:text-pink-400 transition duration-300 text-xl">
-        <i class="fab fa-instagram"></i>
-      </a>
-  
-      <!-- WhatsApp -->
-      <a href="https://wa.me/237694103585" target="_blank" class="text-gray-400 hover:text-green-500 transition duration-300 text-xl">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-  
-      <!-- GitHub -->
-      <a href="https://github.com/jackbrayan17" target="_blank" class="text-gray-400 hover:text-white transition duration-300 text-xl">
-        <i class="fab fa-github"></i>
-      </a>
-  
-      <!-- Email -->
-      <a href="mailto:jackbrayan1707@gmail.com" class="text-gray-400 hover:text-red-500 transition duration-300 text-xl">
-        <i class="fas fa-envelope"></i>
-      </a>
+  <!-- Footer -->
+  <footer class="text-center py-8 text-gray-400 text-sm border-t border-white/10">
+    <div class="flex justify-center gap-6 mb-4">
+      <a href="https://www.tiktok.com/@jackbrayan07" target="_blank" rel="noopener" class="hover:text-pink-500 transition" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/jackbrayan17/" target="_blank" rel="noopener" class="hover:text-pink-400 transition" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/jackbrayan17" target="_blank" rel="noopener" class="hover:text-white transition" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:jackbrayan1707@gmail.com" class="hover:text-red-500 transition" aria-label="Email"><i class="fas fa-envelope"></i></a>
     </div>
-  
     &copy; 2025 Jack Brayan — All Rights Reserved.
   </footer>
-  
 
-  <script src="script.js"></script>
-  <!-- AOS Init Script -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800, // Animation duration in ms
-    once: true,    // Only animate once per element
-  });
-</script>
+  <!-- Scripts -->
+  <script>
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function toggleMenu(){ mobileMenu.classList.toggle('-translate-x-full'); }
+    hamburgerBtn.addEventListener('click', toggleMenu);
 
+    // Observer pour révéler les éléments (progressive enhancement)
+    const reveal = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.remove('opacity-0','translate-y-4'); reveal.unobserve(e.target); }
+      });
+    },{threshold:.15});
+    document.querySelectorAll('[data-reveal]').forEach(el=>{
+      el.classList.add('opacity-0','translate-y-4','transition','duration-700');
+      reveal.observe(el);
+    });
+  </script>
 
-
+  <!-- AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
