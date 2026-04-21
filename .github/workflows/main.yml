@@ -31,38 +31,38 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Verify FTP secrets are set
+      - name: Verify Portfolio FTP secrets are set
         env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+          PORTFOLIO_FTP_SERVER: ${{ secrets.PORTFOLIO_FTP_SERVER }}
+          PORTFOLIO_FTP_USERNAME: ${{ secrets.PORTFOLIO_FTP_USERNAME }}
+          PORTFOLIO_FTP_PASSWORD: ${{ secrets.PORTFOLIO_FTP_PASSWORD }}
+          PORTFOLIO_FTP_SERVER_DIR: ${{ secrets.PORTFOLIO_FTP_SERVER_DIR }}
         run: |
           missing=0
-          [ -z "$FTP_SERVER" ]   && { echo "::error::FTP_SERVER is empty";   missing=1; }
-          [ -z "$FTP_USERNAME" ] && { echo "::error::FTP_USERNAME is empty"; missing=1; }
-          [ -z "$FTP_PASSWORD" ] && { echo "::error::FTP_PASSWORD is empty"; missing=1; }
-          [ -z "$FTP_SERVER_DIR" ] && { echo "::warning::FTP_SERVER_DIR is empty (will default to ./)"; }
+          [ -z "$PORTFOLIO_FTP_SERVER" ]   && { echo "::error::PORTFOLIO_FTP_SERVER is empty";   missing=1; }
+          [ -z "$PORTFOLIO_FTP_USERNAME" ] && { echo "::error::PORTFOLIO_FTP_USERNAME is empty"; missing=1; }
+          [ -z "$PORTFOLIO_FTP_PASSWORD" ] && { echo "::error::PORTFOLIO_FTP_PASSWORD is empty"; missing=1; }
+          [ -z "$PORTFOLIO_FTP_SERVER_DIR" ] && { echo "::warning::PORTFOLIO_FTP_SERVER_DIR is empty (will default to ./)"; }
           if [ "$missing" = "1" ]; then exit 1; fi
           echo "Secrets present. Diagnostic lengths (expected: server=18, user=18, pass=10):"
-          echo "  FTP_SERVER     length = ${#FTP_SERVER}"
-          echo "  FTP_USERNAME   length = ${#FTP_USERNAME}"
-          echo "  FTP_PASSWORD   length = ${#FTP_PASSWORD}"
-          echo "  FTP_SERVER_DIR length = ${#FTP_SERVER_DIR}"
-          printf 'FTP_SERVER trailing char code: '
-          printf '%s' "$FTP_SERVER"   | tail -c 1 | od -An -c | tr -d ' '
-          printf 'FTP_USERNAME trailing char code: '
-          printf '%s' "$FTP_USERNAME" | tail -c 1 | od -An -c | tr -d ' '
+          echo "  PORTFOLIO_FTP_SERVER     length = ${#PORTFOLIO_FTP_SERVER}"
+          echo "  PORTFOLIO_FTP_USERNAME   length = ${#PORTFOLIO_FTP_USERNAME}"
+          echo "  PORTFOLIO_FTP_PASSWORD   length = ${#PORTFOLIO_FTP_PASSWORD}"
+          echo "  PORTFOLIO_FTP_SERVER_DIR length = ${#PORTFOLIO_FTP_SERVER_DIR}"
+          printf 'PORTFOLIO_FTP_SERVER trailing char code: '
+          printf '%s' "$PORTFOLIO_FTP_SERVER"   | tail -c 1 | od -An -c | tr -d ' '
+          printf 'PORTFOLIO_FTP_USERNAME trailing char code: '
+          printf '%s' "$PORTFOLIO_FTP_USERNAME" | tail -c 1 | od -An -c | tr -d ' '
 
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          server: ${{ secrets.PORTFOLIO_FTP_SERVER }}
+          username: ${{ secrets.PORTFOLIO_FTP_USERNAME }}
+          password: ${{ secrets.PORTFOLIO_FTP_PASSWORD }}
           port: 21
           protocol: ${{ github.event.inputs.protocol || 'ftp' }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          server-dir: ${{ secrets.PORTFOLIO_FTP_SERVER_DIR }}
           local-dir: ./
           timeout: 60000
           log-level: standard
