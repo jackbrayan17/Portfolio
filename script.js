@@ -38,37 +38,63 @@ window.toggleMenu = toggleMenu;
 if (hamburgerBtn) hamburgerBtn.addEventListener('click', toggleMenu);
 
 // ---- Theme toggle ----
-const themeButtons = document.querySelectorAll('[data-theme-toggle]');
 const themeColorMeta = document.getElementById('theme-color-meta');
+const themeStorageKey = 'jb-theme';
+const themeConfig = {
+  dark: { label: 'Mode clair', aria: 'Activer le mode clair', color: '#0b1220' },
+  light: { label: 'Mode sombre', aria: 'Activer le mode sombre', color: '#fbf7ef' },
+};
 
-function persistTheme(theme) {
+function readStoredTheme() {
   try {
-    localStorage.setItem('jb-theme', theme);
-  } catch { /* localStorage can be disabled */ }
+    const storedTheme = localStorage.getItem(themeStorageKey);
+    return storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : null;
+  } catch (error) {
+    return null;
+  }
 }
 
-function applyTheme(theme) {
+function writeStoredTheme(theme) {
+  try {
+    localStorage.setItem(themeStorageKey, theme);
+  } catch (error) {
+    // Storage can be disabled in private or locked-down browser contexts.
+  }
+}
+
+function applyTheme(theme, options = {}) {
   const normalizedTheme = theme === 'light' ? 'light' : 'dark';
-  document.documentElement.dataset.theme = normalizedTheme;
-  if (themeColorMeta) themeColorMeta.setAttribute('content', normalizedTheme === 'light' ? '#fbf7ef' : '#0b1220');
+  const isLight = normalizedTheme === 'light';
+  const config = themeConfig[normalizedTheme];
 
-  themeButtons.forEach((button) => {
-    const isLight = normalizedTheme === 'light';
+  document.documentElement.dataset.theme = normalizedTheme;
+  document.documentElement.classList.toggle('theme-light', isLight);
+  document.documentElement.classList.toggle('theme-dark', !isLight);
+
+  if (themeColorMeta) themeColorMeta.setAttribute('content', config.color);
+
+  document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+    button.dataset.currentTheme = normalizedTheme;
     button.setAttribute('aria-pressed', String(isLight));
-    button.setAttribute('aria-label', isLight ? 'Activer le mode sombre' : 'Activer le mode clair');
+    button.setAttribute('aria-label', config.aria);
+    button.title = config.aria;
+
     const text = button.querySelector('.theme-toggle__text');
-    if (text) text.textContent = isLight ? 'Mode sombre' : 'Mode clair';
+    if (text) text.textContent = config.label;
   });
+
+  if (options.persist) writeStoredTheme(normalizedTheme);
 }
 
-themeButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-    applyTheme(nextTheme);
-    persistTheme(nextTheme);
-  });
+document.addEventListener('click', (event) => {
+  const toggle = event.target.closest('[data-theme-toggle]');
+  if (!toggle) return;
+  event.preventDefault();
+  const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  applyTheme(nextTheme, { persist: true });
 });
-applyTheme(document.documentElement.dataset.theme);
+
+applyTheme(readStoredTheme() || document.documentElement.dataset.theme || 'dark');
 
 // ---- Header scroll state & progress bar ----
 const header = document.getElementById('site-header');

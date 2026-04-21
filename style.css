@@ -201,6 +201,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   align-items: center;
   justify-content: center;
   font-size: 0.78rem;
+  opacity: 0.48;
+  transition: color .25s ease, opacity .25s ease, transform .25s ease;
 }
 .theme-toggle__track {
   position: relative;
@@ -229,6 +231,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 :root[data-theme="light"] .theme-toggle__thumb {
   transform: translate(1.35rem, -50%);
+}
+:root[data-theme="dark"] .theme-toggle__icon:first-child,
+:root[data-theme="light"] .theme-toggle__icon:last-child {
+  color: var(--gold-300);
+  opacity: 1;
+  transform: scale(1.05);
 }
 .theme-toggle--mobile {
   justify-content: space-between;
