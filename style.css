@@ -1,6 +1,6 @@
 /* =========================================================
    Jack Brayan — Portfolio
-   Luxury · Epure · Navy Ink + Warm Gold
+   Luxury · Epure · Navy Ink + Sky Blue
    No gradients. Solid colors. Clean lines.
    ========================================================= */
 
@@ -11,15 +11,15 @@
   --ink-700: #121a2b;
   --ink-600: #1a2338;
   --ink-500: #232c44;
-  --gold-100: #ece1be;
-  --gold-200: #d9c289;
-  --gold-300: #c9a961;
-  --gold-400: #b8944c;
+  --gold-100: #dff6ff;
+  --gold-200: #baeaff;
+  --gold-300: #7dd3fc;
+  --gold-400: #38bdf8;
   --cream-50:  #fbfaf5;
   --cream-100: #f5f1e6;
   --cream-200: #e9e2ce;
   --cream-300: #ccc4a9;
-  --border: rgba(201, 169, 97, 0.18);
+  --border: rgba(125, 211, 252, 0.22);
   --border-soft: rgba(255, 255, 255, 0.06);
   --shadow-luxe: 0 20px 40px -20px rgba(0, 0, 0, 0.65);
 }
@@ -31,15 +31,15 @@
   --ink-700: #f1eadc;
   --ink-600: #dccfb9;
   --ink-500: #c7b898;
-  --gold-100: #f0dfbd;
-  --gold-200: #c99635;
-  --gold-300: #946516;
-  --gold-400: #7c5311;
+  --gold-100: #dff6ff;
+  --gold-200: #38bdf8;
+  --gold-300: #0284c7;
+  --gold-400: #0369a1;
   --cream-50:  #121826;
   --cream-100: #1f2937;
   --cream-200: #334155;
   --cream-300: #64748b;
-  --border: rgba(148, 101, 22, 0.28);
+  --border: rgba(2, 132, 199, 0.28);
   --border-soft: rgba(15, 23, 42, 0.1);
   --shadow-luxe: 0 24px 50px -30px rgba(66, 50, 23, 0.38);
 }
@@ -141,7 +141,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 :root[data-theme="light"] #site-header {
   background: rgba(255, 253, 248, 0.82);
-  border-bottom-color: rgba(148, 101, 22, 0.14);
+  border-bottom-color: rgba(2, 132, 199, 0.14);
   box-shadow: 0 10px 30px -26px rgba(15, 23, 42, 0.7);
 }
 :root[data-theme="light"] #site-header.scrolled {
@@ -380,7 +380,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 :root[data-theme="light"] .identity-tags li {
   background: rgba(255, 255, 255, 0.68);
-  border-color: rgba(148, 101, 22, 0.18);
+  border-color: rgba(2, 132, 199, 0.18);
 }
 
 /* =====================  SECTIONS  ===================== */
@@ -906,7 +906,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .contact-form select:focus,
 .contact-form textarea:focus {
   border-color: var(--gold-300);
-  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.14);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.18);
 }
 .contact-form__message {
   margin-top: 1rem;
