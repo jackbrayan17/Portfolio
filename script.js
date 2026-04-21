@@ -151,6 +151,144 @@ if (contactForm) {
   });
 }
 
+// ---- Progressive text reveal ----
+const expandableTextSelector = [
+  '#about p',
+  '.section-lede',
+  '.timeline-list > li',
+  '.project-desc',
+  '.edu-detail',
+  '.intern-desc',
+].join(',');
+
+function getLineHeight(element) {
+  const styles = window.getComputedStyle(element);
+  const parsedLineHeight = parseFloat(styles.lineHeight);
+  if (Number.isFinite(parsedLineHeight)) return parsedLineHeight;
+
+  const parsedFontSize = parseFloat(styles.fontSize);
+  return Number.isFinite(parsedFontSize) ? parsedFontSize * 1.45 : 20;
+}
+
+function measureExpandableLines(block) {
+  const content = block.querySelector(':scope > .expandable-content');
+  if (!content) return 0;
+
+  const width = content.getBoundingClientRect().width || block.getBoundingClientRect().width;
+  if (!width) return 0;
+
+  const clone = block.cloneNode(true);
+  clone.querySelector(':scope > .expandable-more')?.remove();
+  const cloneContent = clone.querySelector(':scope > .expandable-content');
+
+  clone.style.position = 'absolute';
+  clone.style.left = '-9999px';
+  clone.style.top = '0';
+  clone.style.width = `${block.getBoundingClientRect().width}px`;
+  clone.style.height = 'auto';
+  clone.style.maxHeight = 'none';
+  clone.style.visibility = 'hidden';
+  clone.style.pointerEvents = 'none';
+  clone.classList.remove('is-collapsible', 'is-fully-visible');
+
+  if (cloneContent) {
+    cloneContent.style.display = 'block';
+    cloneContent.style.webkitLineClamp = 'unset';
+    cloneContent.style.overflow = 'visible';
+    cloneContent.style.maxHeight = 'none';
+    cloneContent.style.width = `${width}px`;
+  }
+
+  document.body.appendChild(clone);
+  const lineHeight = getLineHeight(content);
+  const height = cloneContent ? cloneContent.scrollHeight : clone.scrollHeight;
+  clone.remove();
+
+  return Math.ceil(height / lineHeight);
+}
+
+function updateExpandableState(block) {
+  const totalLines = measureExpandableLines(block);
+  const control = block.querySelector(':scope > .expandable-more');
+  const visibleLines = Number(block.dataset.visibleLines || 2);
+  const shouldCollapse = totalLines > 2;
+
+  block.dataset.totalLines = String(totalLines);
+  block.classList.toggle('is-collapsible', shouldCollapse);
+  block.classList.toggle('is-fully-visible', !shouldCollapse || visibleLines >= totalLines);
+
+  if (control) {
+    control.hidden = !shouldCollapse || visibleLines >= totalLines;
+  }
+}
+
+function revealMoreText(block) {
+  const totalLines = Number(block.dataset.totalLines || measureExpandableLines(block));
+  const currentLines = Number(block.dataset.visibleLines || 2);
+  const nextLines = Math.min(currentLines + 2, totalLines);
+
+  block.dataset.visibleLines = String(nextLines);
+  block.style.setProperty('--visible-lines', nextLines);
+  block.classList.toggle('is-fully-visible', nextLines >= totalLines);
+
+  const control = block.querySelector(':scope > .expandable-more');
+  if (control) control.hidden = nextLines >= totalLines;
+}
+
+function prepareExpandableText(block) {
+  if (!block || block.dataset.expandableReady === 'true') return;
+  if (!block.textContent || !block.textContent.trim()) return;
+  if (block.closest('form')) return;
+
+  const content = document.createElement('span');
+  content.className = 'expandable-content';
+  while (block.firstChild) content.appendChild(block.firstChild);
+
+  const isInsideLink = Boolean(block.closest('a'));
+  const control = document.createElement(isInsideLink ? 'span' : 'button');
+  control.className = 'expandable-more';
+  control.textContent = '... Voir plus';
+  control.setAttribute('aria-label', 'Afficher deux lignes de plus');
+  control.hidden = true;
+
+  if (isInsideLink) {
+    control.setAttribute('role', 'button');
+    control.setAttribute('tabindex', '0');
+  } else {
+    control.type = 'button';
+  }
+
+  block.classList.add('expandable-block');
+  block.dataset.expandableReady = 'true';
+  block.dataset.visibleLines = '2';
+  block.style.setProperty('--visible-lines', 2);
+  block.append(content, control);
+
+  const trigger = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    revealMoreText(block);
+  };
+
+  control.addEventListener('click', trigger);
+  control.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    trigger(event);
+  });
+
+  requestAnimationFrame(() => updateExpandableState(block));
+}
+
+function initExpandableText(root = document) {
+  root.querySelectorAll(expandableTextSelector).forEach(prepareExpandableText);
+}
+
+document.addEventListener('DOMContentLoaded', () => initExpandableText());
+window.addEventListener('load', () => initExpandableText());
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.expandable-block').forEach(updateExpandableState);
+});
+
 // ---- Dynamic: GitHub & Hugging Face ----
 function createDynamicCard(title, description, meta, url) {
   const a = document.createElement('a');
@@ -199,6 +337,7 @@ async function initDynamicProjects() {
       repos.forEach((r) => {
         ghEl.appendChild(createDynamicCard(r.name, r.description, r.language || 'Repo', r.html_url));
       });
+      initExpandableText(ghEl);
     }
   }
 
@@ -211,6 +350,7 @@ async function initDynamicProjects() {
         const url = 'https://huggingface.co/spaces/' + s.id;
         hfEl.appendChild(createDynamicCard(name, 'Hugging Face Space', s.sdk || 'Space', url));
       });
+      initExpandableText(hfEl);
     }
   }
 }
