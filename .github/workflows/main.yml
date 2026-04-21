@@ -44,7 +44,7 @@ jobs:
           [ -z "$FTP_PASSWORD" ] && { echo "::error::FTP_PASSWORD is empty"; missing=1; }
           [ -z "$FTP_SERVER_DIR" ] && { echo "::warning::FTP_SERVER_DIR is empty (will default to ./)"; }
           if [ "$missing" = "1" ]; then exit 1; fi
-          echo "Secrets present. Diagnostic lengths (expected: server=18, user=17, pass=10):"
+          echo "Secrets present. Diagnostic lengths (expected: server=18, user=18, pass=10):"
           echo "  FTP_SERVER     length = ${#FTP_SERVER}"
           echo "  FTP_USERNAME   length = ${#FTP_USERNAME}"
           echo "  FTP_PASSWORD   length = ${#FTP_PASSWORD}"
