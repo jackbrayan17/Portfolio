@@ -1,28 +1,46 @@
-name: 🚀 Deploy via FTP
+name: Deploy Portfolio via FTP
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: ftp-deploy-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   ftp-deploy:
-    name: 📂 Upload to FTP
+    name: Upload to jackbrayan.com
     runs-on: ubuntu-latest
     environment: Portfolio
 
     steps:
-      - name: 📥 Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      - name: 🚀 FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./
+          timeout: 60000
+          log-level: standard
           exclude: |
-            **/.ftpquota
             **/.git*
+            **/.git*/**
             **/.github/**
+            **/.claude/**
+            **/node_modules/**
+            **/.DS_Store
+            **/.ftpquota
+            **/README.md
+            **/*.log

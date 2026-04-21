@@ -1,83 +1,126 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
+/* =========================================================
+   Jack Brayan — Portfolio JS
+   Nav · Scroll · Dynamic project cards
+   ========================================================= */
+
+// ---- Smooth anchor scroll ----
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (!href || href === '#') return;
+    const target = document.querySelector(href);
+    if (!target) return;
     e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth"
-    });
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
-const titles = [
-    { text: 'Software Developer', color: 'text-blue-400' },
-    { text: 'Data Analyst/Engineer', color: 'text-purple-400' },
-    { text: 'AI Enthusiast', color: 'text-pink-400' },
-    { text: 'Business Strategist', color: 'text-green-400' },
-    { text: 'Music Lover', color: 'text-yellow-400' },
-    { text: 'Problem Solver', color: 'text-red-400' }
-  ];
-  
-  let currentIndex = 0;
-  const typewriterEl = document.getElementById('typewriter');
-  
-  function typeTitle() {
-    const { text, color } = titles[currentIndex];
-    typewriterEl.innerHTML = `<span class="${color}">${text}</span>`;
-    currentIndex = (currentIndex + 1) % titles.length;
-  }
-  
-  typeTitle();
-  setInterval(typeTitle, 2000);
-  
+// ---- Mobile menu ----
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
 
-// Fetch GitHub repos with descriptions
+function toggleMenu() {
+  if (!mobileMenu) return;
+  const isOpen = !mobileMenu.classList.contains('translate-x-full');
+  if (isOpen) {
+    mobileMenu.classList.add('translate-x-full');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    hamburgerBtn && hamburgerBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  } else {
+    mobileMenu.classList.remove('translate-x-full');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    hamburgerBtn && hamburgerBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+}
+window.toggleMenu = toggleMenu;
+if (hamburgerBtn) hamburgerBtn.addEventListener('click', toggleMenu);
+
+// ---- Header scroll state & progress bar ----
+const header = document.getElementById('site-header');
+const progress = document.getElementById('scroll-progress');
+const backTop = document.getElementById('back-to-top');
+
+function onScroll() {
+  const y = window.scrollY;
+  if (header) header.classList.toggle('scrolled', y > 24);
+  if (backTop) backTop.classList.toggle('visible', y > 400);
+  if (progress) {
+    const h = document.documentElement;
+    const max = (h.scrollHeight - h.clientHeight) || 1;
+    progress.style.width = Math.min(100, (y / max) * 100) + '%';
+  }
+}
+document.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ---- Footer year ----
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// ---- Dynamic: GitHub & Hugging Face ----
+function createDynamicCard(title, description, meta, url) {
+  const a = document.createElement('a');
+  a.className = 'project-card card-animation';
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.innerHTML = `
+    <span class="project-tag">${meta || 'Repository'}</span>
+    <h3 class="project-title">${title}</h3>
+    <p class="project-desc">${description || 'Projet open source.'}</p>
+    <span class="project-link">Voir <i class="fas fa-arrow-up-right-from-square"></i></span>
+  `;
+  return a;
+}
+
 async function fetchGitHubRepos() {
-    const response = await fetch('https://api.github.com/users/jackbrayan17/repos');
-    const repos = await response.json();
-    return repos.filter(repo => repo.description);
+  try {
+    const res = await fetch('https://api.github.com/users/jackbrayan17/repos?sort=updated&per_page=100');
+    if (!res.ok) return [];
+    const repos = await res.json();
+    return repos.filter((r) => r.description && !r.fork).slice(0, 6);
+  } catch { return []; }
+}
+
+async function fetchHuggingFaceSpaces() {
+  try {
+    const res = await fetch('https://huggingface.co/api/spaces?author=JackBrayan17');
+    if (!res.ok) return [];
+    const data = await res.json();
+    return Array.isArray(data) ? data.slice(0, 6) : [];
+  } catch { return []; }
+}
+
+async function initDynamicProjects() {
+  const ghEl = document.getElementById('github-projects');
+  const hfEl = document.getElementById('huggingface-projects');
+  if (!ghEl && !hfEl) return;
+
+  const [repos, spaces] = await Promise.all([fetchGitHubRepos(), fetchHuggingFaceSpaces()]);
+
+  if (ghEl) {
+    if (repos.length === 0) {
+      ghEl.innerHTML = '<p class="text-sm text-cream-300">Aucun dépôt public disponible pour le moment.</p>';
+    } else {
+      repos.forEach((r) => {
+        ghEl.appendChild(createDynamicCard(r.name, r.description, r.language || 'Repo', r.html_url));
+      });
+    }
   }
-  
-  // Fetch Hugging Face Spaces
-  async function fetchHuggingFaceSpaces() {
-    const response = await fetch('https://huggingface.co/api/spaces?author=JackBrayan17');
-    const spaces = await response.json();
-    return spaces;
+
+  if (hfEl) {
+    if (spaces.length === 0) {
+      hfEl.innerHTML = '<p class="text-sm text-cream-300">Aucun espace Hugging Face disponible.</p>';
+    } else {
+      spaces.forEach((s) => {
+        const name = (s.id || '').split('/').pop() || s.id;
+        const url = 'https://huggingface.co/spaces/' + s.id;
+        hfEl.appendChild(createDynamicCard(name, 'Hugging Face Space', s.sdk || 'Space', url));
+      });
+    }
   }
-  
-  // Create card for projects
-  function createProjectCard(title, description, language, date, url) {
-    const card = document.createElement('div');
-    card.className = 'project-card card-animation';
-    card.innerHTML = `
-      <h3 class="text-xl font-bold mb-2">${title}</h3>
-      <p class="text-gray-300 mb-2">${description}</p>
-      <p class="text-sm text-gray-400 mb-2">Language: ${language || 'N/A'}</p>
-      <p class="text-sm text-gray-400 mb-4">Published: ${date}</p>
-      <a href="${url}" target="_blank" class="text-blue-400 hover:underline">See Project</a>
-    `;
-    return card;
-  }
-  
-  // Initialize Portfolio
-  async function initPortfolio() {
-    const githubContainer = document.getElementById('github-projects');
-    const huggingfaceContainer = document.getElementById('huggingface-projects');
-  
-    const [repos, spaces] = await Promise.all([fetchGitHubRepos(), fetchHuggingFaceSpaces()]);
-  
-    repos.forEach(repo => {
-      const date = new Date(repo.created_at);
-      const formattedDate = `${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
-      const card = createProjectCard(repo.name, repo.description, repo.language, formattedDate, repo.html_url);
-      githubContainer.appendChild(card);
-    });
-  
-    spaces.forEach(space => {
-      const date = new Date(space.createdAt);
-      const formattedDate = `${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
-      const card = createProjectCard(space.id, 'Hugging Face Space', space.sdk, formattedDate, `https://huggingface.co/spaces/${space.id}`);
-      huggingfaceContainer.appendChild(card);
-    });
-  }
-  
-  document.addEventListener('DOMContentLoaded', initPortfolio);
-  
+}
+
+document.addEventListener('DOMContentLoaded', initDynamicProjects);
