@@ -14,29 +14,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <!-- Primary SEO -->
-  <title>Jack Brayan — Responsable Innovation · Full-Stack Engineer · IA & Big Data</title>
+  <title>Eyoum Atock Jean-Jacques Brayan | Jack Brayan — IA, Tech & Full-Stack</title>
   <meta name="description"
-    content="Eyoum Atock Jean-Jacques Brayan (Jack Brayan) — Responsable de la Cellule Innovation chez NAUMUR SARL. Ingénieur logiciel full-stack, expert IA & Big Data. Django, React, Laravel, AWS. Yaoundé, Cameroun." />
+    content="Eyoum Atock Jean-Jacques Brayan, aussi connu comme Jack Brayan, JACK ou BRAYAN — Responsable Innovation chez NAUMUR SARL. Ingénieur logiciel full-stack, IA, Tech & Big Data, organisateur du Hackathon EEUEZ 2026 à Yaoundé." />
   <meta name="keywords"
-    content="Jack Brayan, Eyoum Atock Jean-Jacques Brayan, Responsable Innovation, NAUMUR SARL, ingénieur logiciel, full-stack, IA, big data, Django, React, Laravel, AWS, Yaoundé, Cameroun, freelance, SEO, data analyst" />
+    content="EYOUM, ATOCK, JEAN-JACQUES, BRAYAN, Eyoum Atock Jean-Jacques Brayan, Jack Brayan, JACK, IA, AI, TECH, Naumur, NAUMUR SARL, Hackathon EEUEZ, solutions digitales africaines, ingénieur logiciel, full-stack, big data, Django, React, Laravel, AWS, Yaoundé, Cameroun, freelance, recrutement, consultation" />
   <meta name="author" content="Eyoum Atock Jean-Jacques Brayan" />
+  <meta name="profile:identity"
+    content="EYOUM ATOCK Jean-Jacques Brayan, Jack Brayan, JACK BRAYAN, BRAYAN — ingénieur logiciel IA, Tech, Big Data et solutions digitales africaines." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="googlebot" content="index,follow" />
-  <meta name="theme-color" content="#0b1220" />
+  <meta name="theme-color" content="#0b1220" id="theme-color-meta" />
   <meta name="language" content="French" />
   <meta name="geo.region" content="CM-CE" />
   <meta name="geo.placename" content="Yaoundé" />
   <link rel="canonical" href="https://jackbrayan.com/" />
   <link rel="alternate" hreflang="fr" href="https://jackbrayan.com/" />
   <link rel="alternate" hreflang="x-default" href="https://jackbrayan.com/" />
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('jb-theme');
+        document.documentElement.dataset.theme = savedTheme || 'dark';
+      } catch (error) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    })();
+  </script>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Jack Brayan" />
   <meta property="og:locale" content="fr_FR" />
-  <meta property="og:title" content="Jack Brayan — Responsable Innovation · Full-Stack · IA & Big Data" />
+  <meta property="og:title" content="Eyoum Atock Jean-Jacques Brayan — Jack Brayan · IA & Tech" />
   <meta property="og:description"
-    content="Responsable de la Cellule Innovation chez NAUMUR SARL. Je conçois et pilote des plateformes web, des systèmes IA/Data et des architectures cloud à fort impact." />
+    content="Responsable Innovation chez NAUMUR SARL. Je conçois des plateformes web, systèmes IA/Data, architectures cloud et solutions digitales africaines." />
   <meta property="og:url" content="https://jackbrayan.com/" />
   <meta property="og:image" content="https://jackbrayan.com/jb.jpg" />
   <meta property="og:image:alt" content="Portrait de Jack Brayan" />
@@ -45,8 +57,8 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Jack Brayan — Full-Stack · IA & Big Data" />
-  <meta name="twitter:description" content="Responsable Innovation chez NAUMUR SARL. Ingénieur logiciel full-stack, IA & Big Data." />
+  <meta name="twitter:title" content="Eyoum Atock Jean-Jacques Brayan — Jack Brayan" />
+  <meta name="twitter:description" content="Ingénieur logiciel full-stack, IA, Tech & Big Data. Responsable Innovation chez NAUMUR SARL." />
   <meta name="twitter:image" content="https://jackbrayan.com/jb.jpg" />
 
   <!-- Preconnect & Preload -->
@@ -120,9 +132,10 @@
         "@type":"Person",
         "@id":"https://jackbrayan.com/#person",
         "name":"Eyoum Atock Jean-Jacques Brayan",
-        "alternateName":"Jack Brayan",
+        "alternateName":["Jack Brayan","JACK BRAYAN","EYOUM","ATOCK","JEAN-JACQUES","BRAYAN","JACK","EYOUM ATOCK Jean-Jacques Brayan"],
+        "disambiguatingDescription":"EYOUM ATOCK Jean-Jacques Brayan, aussi connu comme Jack Brayan ou JACK BRAYAN, est un ingénieur logiciel full-stack spécialisé IA, Tech, Big Data et solutions digitales africaines.",
         "jobTitle":"Responsable de la Cellule Innovation · Ingénieur Logiciel Full-Stack · IA & Big Data",
-        "worksFor":{"@type":"Organization","name":"NAUMUR SARL","url":"https://naumur.vercel.app/"},
+        "worksFor":{"@type":"Organization","name":"NAUMUR SARL","url":"https://naumur.com/"},
         "url":"https://jackbrayan.com/",
         "image":"https://jackbrayan.com/jb.jpg",
         "email":"mailto:contact@jackbrayan.com",
@@ -133,12 +146,15 @@
           {"@type":"CollegeOrUniversity","name":"IAI Cameroun"},
           {"@type":"HighSchool","name":"Laval Bilingual School"}
         ],
-        "knowsAbout":["Django","Laravel","React","Next.js","FastAPI","Python","Big Data","Intelligence Artificielle","AWS","Docker","PostgreSQL","MySQL","SEO","Data Visualization"],
+        "knowsAbout":["Django","Laravel","React","Next.js","FastAPI","Python","Big Data","Intelligence Artificielle","AI","Tech","Solutions digitales africaines","AWS","Docker","PostgreSQL","MySQL","SEO","Data Visualization","Hackathons"],
         "knowsLanguage":["fr","en"],
         "sameAs":[
           "https://github.com/jackbrayan17",
-          "https://www.linkedin.com/in/eyoum-atock-jean-jacques-brayan-82a6a1295/",
+          "https://www.linkedin.com/in/eyoum-atock-jean-jacques-brayan-82a6a1295",
           "https://huggingface.co/JackBrayan17",
+          "https://naumur.com",
+          "https://hackathon.eeuez-market.com/",
+          "https://www.instagram.com/hackathon.eeuez/",
           "https://zevaba.com",
           "https://eeuez-market.com"
         ]
@@ -156,7 +172,24 @@
         "name":"Jack Brayan — Services Digitaux",
         "provider":{"@id":"https://jackbrayan.com/#person"},
         "areaServed":"Worldwide",
-        "serviceType":["Développement Web Full-Stack","Intelligence Artificielle","Big Data & Data Analytics","Architecture Cloud","SEO & Marketing Digital"]
+        "serviceType":["Développement Web Full-Stack","Intelligence Artificielle","Big Data & Data Analytics","Architecture Cloud","SEO & Marketing Digital","Consultation Tech","Recrutement Tech"],
+        "contactPoint":{"@type":"ContactPoint","email":"contact@jackbrayan.com","telephone":"+237694103585","contactType":"Projets, recrutement, consultation et collaborations"}
+      },
+      {
+        "@type":"Event",
+        "@id":"https://jackbrayan.com/#hackathon-eeuez-2026",
+        "name":"Hackathon EEUEZ 2026 — Créer, Transformer et Lancer",
+        "description":"Hackathon organisé le 11 février 2026 sur le thème : Créer, Transformer et Lancer : Construire des solutions digitales africaines. Cinq équipes ont travaillé en collaboration, présenté leurs projets et gagné plusieurs lots.",
+        "startDate":"2026-02-11",
+        "eventStatus":"https://schema.org/EventCompleted",
+        "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+        "url":"https://hackathon.eeuez-market.com/",
+        "organizer":{"@id":"https://jackbrayan.com/#person"},
+        "location":{
+          "@type":"Place",
+          "name":"Campus des Grandes Écoles Européennes",
+          "address":{"@type":"PostalAddress","streetAddress":"Titi Garage","addressLocality":"Yaoundé","addressCountry":"CM"}
+        }
       }
     ]
   }
@@ -193,6 +226,12 @@
       </nav>
 
       <div class="flex items-center gap-3">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Activer le mode clair"
+          aria-pressed="false">
+          <span class="theme-toggle__icon" aria-hidden="true"><i class="fas fa-moon"></i></span>
+          <span class="theme-toggle__track" aria-hidden="true"><span class="theme-toggle__thumb"></span></span>
+          <span class="theme-toggle__icon" aria-hidden="true"><i class="fas fa-sun"></i></span>
+        </button>
         <a href="cv_JB_FR.pdf" download
           class="hidden md:inline-flex btn-outline text-xs">
           <i class="fas fa-file-arrow-down mr-2"></i>CV
@@ -225,6 +264,11 @@
         <a href="#skills" onclick="toggleMenu()" class="mobile-link">Compétences</a>
         <a href="#education" onclick="toggleMenu()" class="mobile-link">Formation</a>
         <a href="#contact" onclick="toggleMenu()" class="mobile-link">Contact</a>
+        <button type="button" class="theme-toggle theme-toggle--mobile" data-theme-toggle aria-label="Activer le mode clair"
+          aria-pressed="false">
+          <span class="theme-toggle__text">Mode clair</span>
+          <span class="theme-toggle__track" aria-hidden="true"><span class="theme-toggle__thumb"></span></span>
+        </button>
         <div class="pt-6 flex gap-3 border-t border-white/10 mt-4">
           <a href="cv_JB_FR.pdf" download class="btn-outline text-xs flex-1 justify-center">CV Français</a>
           <a href="cv_JB_EN.pdf" download class="btn-outline text-xs flex-1 justify-center">CV English</a>
@@ -255,10 +299,21 @@
               Responsable de la Cellule Innovation chez <strong class="text-cream-50">NAUMUR SARL</strong>
               — Ingénieur logiciel full-stack, orienté IA &amp; Big Data.
             </p>
-            <p class="text-base md:text-lg text-cream-300 mb-10 max-w-2xl">
+            <p class="text-base md:text-lg text-cream-300 mb-5 max-w-2xl">
               Je pilote la transformation digitale, encadre des équipes tech et conçois des systèmes
               robustes à fort impact opérationnel — du design au déploiement cloud.
             </p>
+
+            <ul class="identity-tags" aria-label="Noms, alias et expertises associés à Jack Brayan">
+              <li>EYOUM</li>
+              <li>ATOCK</li>
+              <li>JEAN-JACQUES</li>
+              <li>BRAYAN</li>
+              <li>JACK BRAYAN</li>
+              <li>IA</li>
+              <li>TECH</li>
+              <li>Solutions digitales africaines</li>
+            </ul>
 
             <div class="flex flex-wrap gap-3 mb-10">
               <a href="#projects" class="btn-primary">
@@ -311,6 +366,8 @@
           <span class="opacity-40">·</span>
           <span>EEUEZ Group</span>
           <span class="opacity-40">·</span>
+          <span>Hackathon EEUEZ</span>
+          <span class="opacity-40">·</span>
           <span>Mubaku</span>
           <span class="opacity-40">·</span>
           <span>On Black Streetwear</span>
@@ -352,6 +409,23 @@
             </div>
           </article>
 
+          <article class="timeline-item" data-aos="fade-up" id="hackathon">
+            <div class="timeline-dot"><i class="fas fa-people-group"></i></div>
+            <div class="timeline-body">
+              <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                <h3 class="timeline-title">Organisateur — Hackathon EEUEZ 2026</h3>
+                <span class="timeline-date">11 fév. 2026</span>
+              </div>
+              <p class="timeline-org">Campus des Grandes Écoles Européennes · Titi Garage</p>
+              <ul class="timeline-list">
+                <li>Conception et organisation du hackathon <em class="text-gold-300 not-italic">Créer, Transformer et Lancer : Construire des solutions digitales africaines</em>.</li>
+                <li>Coordination des intervenants et des ateliers thématiques autour de la création, de la transformation digitale et du lancement de produits tech en Afrique.</li>
+                <li>Encadrement de 5 équipes collaboratives : usage d'outils collaboratifs, présentation des projets, jury et remise de nombreux lots.</li>
+                <li>Présence digitale : <a href="https://hackathon.eeuez-market.com/" target="_blank" rel="noopener" class="text-gold-300 hover:underline">hackathon.eeuez-market.com</a> et Instagram <a href="https://www.instagram.com/hackathon.eeuez/" target="_blank" rel="noopener" class="text-gold-300 hover:underline">@hackathon.eeuez</a>.</li>
+              </ul>
+            </div>
+          </article>
+
           <article class="timeline-item" data-aos="fade-up">
             <div class="timeline-dot"><i class="fas fa-chart-line"></i></div>
             <div class="timeline-body">
@@ -362,7 +436,7 @@
               <p class="timeline-org">NAUMUR SARL · Yaoundé, Cameroun</p>
               <ul class="timeline-list">
                 <li>Nettoyage, consolidation et data visualisation (Excel / Flourish / SharePoint) pour le suivi des indicateurs PADESCE.</li>
-                <li>Développement et maintenance du site institutionnel <em class="text-gold-300 not-italic">naumur.vercel.app</em>.</li>
+                <li>Développement et maintenance du site institutionnel <em class="text-gold-300 not-italic">naumur.com</em>.</li>
                 <li>Conception d'une application web de gestion des appels opératrices avec suivi des PME du fichier fiscal.</li>
                 <li>Déploiement et maintenance de <em class="text-gold-300 not-italic">Zevaba</em> (Django) — réseau social intellectuel sur cPanel.</li>
               </ul>
@@ -445,7 +519,7 @@
         <header class="section-head">
           <span class="eyebrow">Portfolio</span>
           <h2 class="section-title">Projets en Production</h2>
-          <p class="section-lede">Des produits réels, utilisés au quotidien — e-commerce, réseaux sociaux, fintech, data apps.</p>
+          <p class="section-lede">Des produits réels, utilisés au quotidien — e-commerce, réseaux sociaux, fintech, data apps et événements tech.</p>
         </header>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
@@ -468,6 +542,13 @@
             <h3 class="project-title">EEUEZ-Market</h3>
             <p class="project-desc">Plateforme e-commerce reliant marchands, coursiers et clients avec système de commande et paiement.</p>
             <span class="project-link">eeuez-market.com <i class="fas fa-arrow-up-right-from-square"></i></span>
+          </a>
+
+          <a href="https://hackathon.eeuez-market.com/" target="_blank" rel="noopener" class="project-card" data-aos="fade-up">
+            <span class="project-tag">Hackathon · IA &amp; Tech</span>
+            <h3 class="project-title">Hackathon EEUEZ 2026</h3>
+            <p class="project-desc">Événement organisé le 11 février 2026 autour du thème « Créer, Transformer et Lancer » pour construire des solutions digitales africaines avec 5 équipes collaboratives.</p>
+            <span class="project-link">hackathon.eeuez-market.com <i class="fas fa-arrow-up-right-from-square"></i></span>
           </a>
 
           <a href="https://zevaba.com/" target="_blank" rel="noopener" class="project-card" data-aos="fade-up">
@@ -512,11 +593,11 @@
             <span class="project-link">mubaku-hightech.com <i class="fas fa-arrow-up-right-from-square"></i></span>
           </a>
 
-          <a href="https://naumur.vercel.app/" target="_blank" rel="noopener" class="project-card" data-aos="fade-up">
+          <a href="https://naumur.com/" target="_blank" rel="noopener" class="project-card" data-aos="fade-up">
             <span class="project-tag">Corporate · Next.js</span>
             <h3 class="project-title">NAUMUR</h3>
             <p class="project-desc">Site institutionnel — data, ops &amp; innovation.</p>
-            <span class="project-link">naumur.vercel.app <i class="fas fa-arrow-up-right-from-square"></i></span>
+            <span class="project-link">naumur.com <i class="fas fa-arrow-up-right-from-square"></i></span>
           </a>
         </div>
 
@@ -735,9 +816,58 @@
           </a>
         </div>
 
+        <form id="contact-form" class="contact-form mt-10" aria-label="Formulaire de contact par email">
+          <div class="contact-form__head">
+            <div>
+              <span class="contact-label">Demande structurée</span>
+              <h3 class="contact-form__title">Envoyer un email pour un projet, recrutement ou consultation</h3>
+            </div>
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+          </div>
+
+          <div class="contact-form__grid">
+            <label>
+              <span>Nom complet</span>
+              <input type="text" name="name" autocomplete="name" placeholder="Votre nom" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" placeholder="vous@entreprise.com" required>
+            </label>
+            <label>
+              <span>Type de demande</span>
+              <select name="purpose" required>
+                <option value="Projet digital">Projet digital</option>
+                <option value="Recrutement">Recrutement</option>
+                <option value="Consultation">Consultation</option>
+                <option value="Partenariat">Partenariat</option>
+              </select>
+            </label>
+            <label>
+              <span>Organisation</span>
+              <input type="text" name="organization" autocomplete="organization" placeholder="Entreprise ou équipe">
+            </label>
+          </div>
+
+          <label class="contact-form__message">
+            <span>Message</span>
+            <textarea name="message" rows="5" placeholder="Décrivez le besoin, le contexte, le délai ou les objectifs." required></textarea>
+          </label>
+
+          <div class="contact-form__actions">
+            <button type="submit" class="btn-primary">
+              <i class="fas fa-envelope-open-text mr-2"></i>Préparer l'email
+            </button>
+            <a href="mailto:contact@jackbrayan.com" class="btn-ghost">
+              <i class="fas fa-at mr-2"></i>Email direct
+            </a>
+          </div>
+          <p id="contact-form-note" class="form-note" role="status" aria-live="polite"></p>
+        </form>
+
         <div class="mt-10 flex justify-center gap-2 flex-wrap">
           <a href="https://github.com/jackbrayan17" target="_blank" rel="noopener" aria-label="GitHub" class="social-icon"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/eyoum-atock-jean-jacques-brayan-82a6a1295/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/eyoum-atock-jean-jacques-brayan-82a6a1295" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://huggingface.co/JackBrayan17" target="_blank" rel="noopener" aria-label="Hugging Face" class="social-icon"><i class="fas fa-brain"></i></a>
           <a href="https://www.instagram.com/jackbrayan17/" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
           <a href="https://www.tiktok.com/@jackbrayan07" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon"><i class="fab fa-tiktok"></i></a>

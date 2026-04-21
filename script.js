@@ -37,6 +37,39 @@ function toggleMenu() {
 window.toggleMenu = toggleMenu;
 if (hamburgerBtn) hamburgerBtn.addEventListener('click', toggleMenu);
 
+// ---- Theme toggle ----
+const themeButtons = document.querySelectorAll('[data-theme-toggle]');
+const themeColorMeta = document.getElementById('theme-color-meta');
+
+function persistTheme(theme) {
+  try {
+    localStorage.setItem('jb-theme', theme);
+  } catch { /* localStorage can be disabled */ }
+}
+
+function applyTheme(theme) {
+  const normalizedTheme = theme === 'light' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = normalizedTheme;
+  if (themeColorMeta) themeColorMeta.setAttribute('content', normalizedTheme === 'light' ? '#fbf7ef' : '#0b1220');
+
+  themeButtons.forEach((button) => {
+    const isLight = normalizedTheme === 'light';
+    button.setAttribute('aria-pressed', String(isLight));
+    button.setAttribute('aria-label', isLight ? 'Activer le mode sombre' : 'Activer le mode clair');
+    const text = button.querySelector('.theme-toggle__text');
+    if (text) text.textContent = isLight ? 'Mode sombre' : 'Mode clair';
+  });
+}
+
+themeButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    applyTheme(nextTheme);
+    persistTheme(nextTheme);
+  });
+});
+applyTheme(document.documentElement.dataset.theme);
+
 // ---- Header scroll state & progress bar ----
 const header = document.getElementById('site-header');
 const progress = document.getElementById('scroll-progress');
@@ -58,6 +91,39 @@ onScroll();
 // ---- Footer year ----
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// ---- Contact form: build a structured mailto ----
+const contactForm = document.getElementById('contact-form');
+const contactFormNote = document.getElementById('contact-form-note');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(contactForm);
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const purpose = String(data.get('purpose') || 'Projet digital').trim();
+    const organization = String(data.get('organization') || '').trim();
+    const message = String(data.get('message') || '').trim();
+
+    const subject = `[${purpose}] Contact depuis jackbrayan.com`;
+    const body = [
+      `Nom : ${name}`,
+      `Email : ${email}`,
+      organization ? `Organisation : ${organization}` : null,
+      `Type de demande : ${purpose}`,
+      '',
+      'Message :',
+      message,
+    ].filter(Boolean).join('\n');
+
+    const href = `mailto:contact@jackbrayan.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (contactFormNote) {
+      contactFormNote.textContent = "Votre client mail va s'ouvrir avec un message déjà préparé.";
+    }
+    window.location.href = href;
+  });
+}
 
 // ---- Dynamic: GitHub & Hugging Face ----
 function createDynamicCard(title, description, meta, url) {
