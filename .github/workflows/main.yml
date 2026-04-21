@@ -62,7 +62,7 @@ jobs:
           password: ${{ secrets.PORTFOLIO_FTP_PASSWORD }}
           port: 21
           protocol: ${{ github.event.inputs.protocol || 'ftp' }}
-          server-dir: ${{ secrets.PORTFOLIO_FTP_SERVER_DIR }}
+          server-dir: ./
           local-dir: ./
           timeout: 60000
           log-level: standard
