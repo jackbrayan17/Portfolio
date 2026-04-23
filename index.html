@@ -319,6 +319,9 @@
               <a href="#projects" class="btn-primary">
                 <i class="fas fa-compass mr-2"></i>Découvrir mes projets
               </a>
+              <button type="button" class="btn-ghost" data-chatbot-open>
+                <i class="fas fa-comment-dots mr-2"></i>Me poser une question
+              </button>
               <a href="cv_JB_FR.pdf" download class="btn-outline">
                 <i class="fas fa-file-arrow-down mr-2"></i>CV (FR)
               </a>
@@ -880,6 +883,49 @@
     </section>
   </main>
 
+  <section class="chatbot-shell" aria-label="Assistant portfolio Jack Brayan">
+    <aside id="chatbot-panel" class="chatbot-panel" aria-hidden="true" aria-label="Conversation avec Jack Brayan">
+      <div class="chatbot-panel__header">
+        <div>
+          <span class="chatbot-panel__eyebrow">Jack Brayan</span>
+          <h3 class="chatbot-panel__title">Parlez avec moi</h3>
+          <p class="chatbot-panel__lede">Posez une question sur mes compétences, mes projets, ma stack, mes réseaux ou mon parcours.</p>
+        </div>
+        <button type="button" id="chatbot-close" class="chatbot-close" aria-label="Fermer la conversation">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="chatbot-panel__status">
+        <span class="chatbot-status-dot" aria-hidden="true"></span>
+        <span>Réponses alignées sur mon portfolio et mes projets réels</span>
+      </div>
+
+      <div id="chat-log" class="chatbot-log" aria-live="polite" aria-label="Messages du chatbot"></div>
+      <div id="chatbot-suggestions" class="chatbot-suggestions" aria-label="Suggestions rapides"></div>
+
+      <form id="chatbot-form" class="chatbot-form" aria-label="Envoyer une question à Jack Brayan">
+        <label class="sr-only" for="user-input">Votre question</label>
+        <textarea id="user-input" class="chatbot-input" rows="1" maxlength="260"
+          placeholder="Ex: Quelle stack utilises-tu sur tes projets Django ?"></textarea>
+        <button type="submit" class="chatbot-send" aria-label="Envoyer le message">
+          <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        </button>
+      </form>
+    </aside>
+
+    <button type="button" id="chatbot-launcher" class="chatbot-launcher" aria-expanded="false"
+      aria-controls="chatbot-panel" aria-label="Ouvrir la conversation avec Jack Brayan">
+      <span class="chatbot-launcher__icon" aria-hidden="true">
+        <i class="fas fa-comment-dots"></i>
+      </span>
+      <span class="chatbot-launcher__text">
+        <span class="chatbot-launcher__title">Parlez avec Jack</span>
+        <span class="chatbot-launcher__meta">Stack, projets, contact, réseaux</span>
+      </span>
+    </button>
+  </section>
+
   <!-- Footer -->
   <footer class="border-t border-white/5 bg-ink-900">
     <div class="mx-auto max-w-7xl px-5 md:px-8 py-10 grid md:grid-cols-3 gap-8 items-start">
@@ -923,6 +969,7 @@
 
   <!-- Scripts -->
   <script src="script.js" defer></script>
+  <script src="chatbot.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
   <script>
     window.addEventListener('load', () => {
