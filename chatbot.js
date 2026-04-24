@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const shell = document.querySelector('.chatbot-shell');
   const launcher = document.getElementById('chatbot-launcher');
   const panel = document.getElementById('chatbot-panel');
   const closeButton = document.getElementById('chatbot-close');
@@ -7,11 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('chatbot-form');
   const input = document.getElementById('user-input');
 
-  if (!launcher || !panel || !closeButton || !log || !suggestions || !form || !input) return;
+  if (!shell || !launcher || !panel || !closeButton || !log || !suggestions || !form || !input) return;
 
   const listFormatter = typeof Intl !== 'undefined' && typeof Intl.ListFormat === 'function'
     ? new Intl.ListFormat('fr', { style: 'long', type: 'conjunction' })
     : null;
+  const dragStorageKey = 'jb-chatbot-position';
+  const viewportPadding = 12;
+  const dragThreshold = 6;
+  let dragSession = null;
 
   const state = {
     isOpen: false,
@@ -19,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     lastIntent: 'default',
     lastProjectId: '',
     discussedProjects: [],
+    isDragging: false,
+    suppressLauncherClick: false,
   };
 
   const profile = buildProfile();
@@ -281,11 +288,148 @@ document.addEventListener('DOMContentLoaded', () => {
     state.discussedProjects = unique([projectId, ...state.discussedProjects]).slice(0, 8);
   }
 
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function getLauncherDimensions() {
+    return {
+      width: launcher.offsetWidth || 66,
+      height: launcher.offsetHeight || 66,
+    };
+  }
+
+  function clampShellPosition(left, top) {
+    const { width, height } = getLauncherDimensions();
+    const maxLeft = Math.max(viewportPadding, window.innerWidth - width - viewportPadding);
+    const maxTop = Math.max(viewportPadding, window.innerHeight - height - viewportPadding);
+
+    return {
+      left: clamp(left, viewportPadding, maxLeft),
+      top: clamp(top, viewportPadding, maxTop),
+    };
+  }
+
+  function saveShellPosition(position) {
+    try {
+      localStorage.setItem(dragStorageKey, JSON.stringify(position));
+    } catch (error) {
+      // Ignore browsers that block storage.
+    }
+  }
+
+  function loadShellPosition() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(dragStorageKey) || 'null');
+      if (!saved || !Number.isFinite(saved.left) || !Number.isFinite(saved.top)) return null;
+      return saved;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function getCurrentShellPosition() {
+    const rect = shell.getBoundingClientRect();
+    return clampShellPosition(rect.left, rect.top);
+  }
+
+  function updateShellPlacement(position = getCurrentShellPosition()) {
+    const { width: launcherWidth, height: launcherHeight } = getLauncherDimensions();
+    const panelWidth = panel.offsetWidth || 416;
+    const panelHeight = panel.offsetHeight || 620;
+    const spaceRight = window.innerWidth - (position.left + launcherWidth) - viewportPadding;
+    const spaceLeft = position.left - viewportPadding;
+    const spaceBelow = window.innerHeight - (position.top + launcherHeight) - viewportPadding;
+    const spaceAbove = position.top - viewportPadding;
+
+    shell.dataset.chatbotHorizontal = spaceRight >= panelWidth || spaceRight >= spaceLeft ? 'right' : 'left';
+    shell.dataset.chatbotVertical = spaceBelow >= panelHeight || spaceBelow >= spaceAbove ? 'down' : 'up';
+  }
+
+  function applyShellPosition(left, top, options = {}) {
+    const nextPosition = clampShellPosition(left, top);
+    shell.style.left = `${nextPosition.left}px`;
+    shell.style.top = `${nextPosition.top}px`;
+    shell.style.right = 'auto';
+    shell.style.bottom = 'auto';
+    updateShellPlacement(nextPosition);
+
+    if (options.persist) saveShellPosition(nextPosition);
+
+    return nextPosition;
+  }
+
+  function syncShellToViewport(options = {}) {
+    const current = getCurrentShellPosition();
+    return applyShellPosition(current.left, current.top, options);
+  }
+
+  function initializeShellPosition() {
+    const saved = loadShellPosition();
+
+    if (saved) {
+      applyShellPosition(saved.left, saved.top);
+      return;
+    }
+
+    updateShellPlacement(getCurrentShellPosition());
+  }
+
+  function setDragging(nextState) {
+    state.isDragging = Boolean(nextState);
+    shell.dataset.dragging = String(state.isDragging);
+  }
+
+  function startLauncherDrag(event) {
+    if (event.button !== 0 && event.pointerType !== 'touch') return;
+
+    const origin = getCurrentShellPosition();
+    dragSession = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      originLeft: origin.left,
+      originTop: origin.top,
+      moved: false,
+    };
+
+    state.suppressLauncherClick = false;
+    launcher.setPointerCapture?.(event.pointerId);
+  }
+
+  function moveLauncher(event) {
+    if (!dragSession || event.pointerId !== dragSession.pointerId) return;
+
+    const deltaX = event.clientX - dragSession.startX;
+    const deltaY = event.clientY - dragSession.startY;
+
+    if (!dragSession.moved && Math.hypot(deltaX, deltaY) < dragThreshold) return;
+
+    event.preventDefault();
+    dragSession.moved = true;
+    setDragging(true);
+    applyShellPosition(dragSession.originLeft + deltaX, dragSession.originTop + deltaY);
+  }
+
+  function stopLauncherDrag(event) {
+    if (!dragSession || (event && event.pointerId !== dragSession.pointerId)) return;
+
+    if (dragSession.moved) {
+      state.suppressLauncherClick = true;
+      saveShellPosition(getCurrentShellPosition());
+    }
+
+    launcher.releasePointerCapture?.(dragSession.pointerId);
+    dragSession = null;
+    setDragging(false);
+  }
+
   function setOpen(nextState) {
     state.isOpen = Boolean(nextState);
     panel.classList.toggle('is-open', state.isOpen);
     panel.setAttribute('aria-hidden', String(!state.isOpen));
     launcher.setAttribute('aria-expanded', String(state.isOpen));
+    updateShellPlacement();
   }
 
   function openChat(options = {}) {
@@ -967,7 +1111,17 @@ document.addEventListener('DOMContentLoaded', () => {
     withTyping(response);
   }
 
-  launcher.addEventListener('click', () => {
+  launcher.addEventListener('pointerdown', startLauncherDrag);
+  launcher.addEventListener('pointermove', moveLauncher);
+  launcher.addEventListener('pointerup', stopLauncherDrag);
+  launcher.addEventListener('pointercancel', stopLauncherDrag);
+  launcher.addEventListener('lostpointercapture', stopLauncherDrag);
+  launcher.addEventListener('click', (event) => {
+    if (state.suppressLauncherClick) {
+      event.preventDefault();
+      state.suppressLauncherClick = false;
+      return;
+    }
     if (state.isOpen) {
       closeChat();
       return;
@@ -993,6 +1147,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.key === 'Escape' && state.isOpen) closeChat();
   });
 
+  window.addEventListener('resize', () => {
+    syncShellToViewport();
+    autoResizeInput();
+  });
+
   document.addEventListener('click', (event) => {
     if (!state.isOpen) return;
     const target = event.target;
@@ -1006,5 +1165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeChat();
   });
 
+  initializeShellPosition();
+  setDragging(false);
   autoResizeInput();
 });
