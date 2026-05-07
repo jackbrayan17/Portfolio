@@ -839,74 +839,105 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 .case-study__gallery {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 1rem;
+  margin-top: 2.5rem;
+  padding: 4rem 1rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  position: relative;
 }
 .case-study__shot {
-  margin: 0;
-  grid-column: span 2;
-  background: var(--ink-900);
-  border: 1px solid var(--border-soft);
-  overflow: hidden;
   position: relative;
-  transition: border-color .35s ease, transform .35s ease;
+  width: 220px;
+  height: 280px;
+  margin: 0 -55px;
+  background: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 30px rgba(0, 0, 0, 0.35);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: rotate(calc(var(--r) * 1deg));
+  transition: transform .55s cubic-bezier(.2,.8,.2,1), margin .55s cubic-bezier(.2,.8,.2,1), border-color .35s ease, box-shadow .35s ease;
+}
+.case-study__gallery:hover .case-study__shot {
+  transform: rotate(0deg);
+  margin: 0 8px;
 }
 .case-study__shot:hover {
-  border-color: var(--border);
-  transform: translateY(-3px);
+  border-color: var(--gold-300);
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.45);
 }
-.case-study__shot--wide { grid-column: span 4; }
 
 .case-study__shot img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  aspect-ratio: 16 / 10;
   transition: transform .6s ease;
 }
-.case-study__shot:hover img { transform: scale(1.035); }
+.case-study__shot:hover img { transform: scale(1.05); }
 
 .case-study__shot figcaption {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 0.6rem 0.85rem;
-  background: rgba(8, 13, 22, 0.92);
-  border-top: 1px solid var(--border);
+  padding: 0.75rem 0.85rem;
+  background: rgba(8, 13, 22, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--cream-50);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  transform: translateY(102%);
-  transition: transform .4s ease;
+  text-align: center;
 }
-.case-study__shot:hover figcaption,
-.case-study__shot:focus-within figcaption { transform: translateY(0); }
 
 @media (max-width: 1024px) {
   .case-study__hero { grid-template-columns: 1fr; }
-  .case-study__gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .case-study__shot { grid-column: span 2; }
-  .case-study__shot--wide { grid-column: span 4; }
+  .case-study__gallery { padding: 3rem 0.5rem 2rem; }
+  .case-study__shot {
+    width: 175px;
+    height: 230px;
+    margin: 0 -45px;
+  }
 }
 @media (max-width: 640px) {
   .case-study__heading { flex-direction: column; align-items: flex-start; }
   .case-study__cta { align-self: flex-start; }
   .case-study__pillars dt { font-size: 1.5rem; }
-  .case-study__gallery { grid-template-columns: 1fr; }
-  .case-study__shot,
-  .case-study__shot--wide { grid-column: span 1; }
-  .case-study__shot figcaption { transform: translateY(0); }
+  .case-study__gallery {
+    flex-direction: column;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+  .case-study__shot {
+    width: 100%;
+    max-width: 360px;
+    height: 220px;
+    margin: 0;
+    transform: rotate(0deg);
+  }
+  .case-study__gallery:hover .case-study__shot { margin: 0; }
 }
 
+:root[data-theme="light"] .case-study__shot {
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 20px 30px rgba(15, 23, 42, 0.18);
+}
 :root[data-theme="light"] .case-study__shot figcaption {
-  background: rgba(255, 253, 248, 0.95);
+  background: rgba(255, 253, 248, 0.85);
   color: var(--cream-50);
+  border-top-color: rgba(15, 23, 42, 0.08);
 }
 
 /* =====================  SKILLS  ===================== */
