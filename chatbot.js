@@ -4,11 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const panel = document.getElementById('chatbot-panel');
   const closeButton = document.getElementById('chatbot-close');
   const log = document.getElementById('chat-log');
-  const suggestions = document.getElementById('chatbot-suggestions');
   const form = document.getElementById('chatbot-form');
   const input = document.getElementById('user-input');
 
-  if (!shell || !launcher || !panel || !closeButton || !log || !suggestions || !form || !input) return;
+  if (!shell || !launcher || !panel || !closeButton || !log || !form || !input) return;
 
   const listFormatter = typeof Intl !== 'undefined' && typeof Intl.ListFormat === 'function'
     ? new Intl.ListFormat('fr', { style: 'long', type: 'conjunction' })
@@ -490,23 +489,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return element;
   }
 
-  function renderSuggestions(items) {
-    suggestions.innerHTML = '';
-
-    items.forEach((item) => {
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'chatbot-chip';
-      chip.textContent = item;
-      chip.addEventListener('click', () => {
-        input.value = item;
-        autoResizeInput();
-        form.requestSubmit();
-      });
-      suggestions.appendChild(chip);
-    });
-  }
-
   function defaultSuggestions() {
     return [
       'Quelles sont tes stacks principales ?',
@@ -523,7 +505,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function bootChat() {
     state.booted = true;
     appendMessage(greetingMessage(), 'assistant');
-    renderSuggestions(defaultSuggestions());
   }
 
   function withTyping(response) {
@@ -533,7 +514,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.setTimeout(() => {
       typingMessage.remove();
       appendMessage(response.text, 'assistant');
-      renderSuggestions(response.suggestions);
     }, delay);
   }
 

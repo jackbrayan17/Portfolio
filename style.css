@@ -1515,41 +1515,23 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 
 .chatbot-panel__header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.15rem 1.15rem 0.85rem;
+  padding: 0.95rem 1rem 0.9rem;
   border-bottom: 1px solid var(--border-soft);
-}
-.chatbot-panel__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-bottom: 0.45rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold-300);
-}
-.chatbot-panel__eyebrow::before {
-  content: "";
-  width: 1.1rem;
-  height: 1px;
-  background: var(--gold-300);
 }
 .chatbot-panel__title {
   color: var(--cream-50);
-  font-size: 2rem;
-  line-height: 1;
-  font-weight: 500;
+  font-size: 1.45rem;
+  line-height: 1.05;
+  font-weight: 600;
 }
 .chatbot-panel__lede {
-  margin-top: 0.55rem;
+  margin-top: 0.2rem;
   color: var(--cream-300);
-  font-size: 0.9rem;
-  line-height: 1.55;
-  max-width: 22rem;
+  font-size: 0.76rem;
+  line-height: 1.45;
 }
 
 .chatbot-close {
@@ -1570,32 +1552,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   transform: translateY(-1px);
 }
 
-.chatbot-panel__status {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.8rem 1.15rem;
-  border-bottom: 1px solid var(--border-soft);
-  background: rgba(255, 255, 255, 0.025);
-  color: var(--cream-200);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-}
-.chatbot-status-dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 999px;
-  background: #34d399;
-  box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.12);
-}
-
 .chatbot-log {
   flex: 1;
   overflow-y: auto;
-  padding: 1rem 1rem 0.85rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 0.8rem;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 16%),
     rgba(8, 13, 22, 0.58);
@@ -1604,7 +1567,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .chatbot-message {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0;
   max-width: 88%;
 }
 .chatbot-message--assistant {
@@ -1615,17 +1578,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   align-items: flex-end;
 }
 .chatbot-message__label {
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cream-300);
+  display: none;
 }
 .chatbot-bubble {
-  padding: 0.9rem 1rem;
+  padding: 0.82rem 0.95rem;
   white-space: pre-line;
-  line-height: 1.6;
-  font-size: 0.93rem;
+  line-height: 1.55;
+  font-size: 0.9rem;
   border: 1px solid transparent;
 }
 .chatbot-message--assistant .chatbot-bubble {
@@ -1676,31 +1635,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     transform: translateY(-3px);
     opacity: 1;
   }
-}
-
-.chatbot-suggestions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  padding: 0 1rem 1rem;
-}
-.chatbot-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.58rem 0.78rem;
-  border: 1px solid var(--border-soft);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--cream-100);
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  transition: border-color .25s ease, color .25s ease, background-color .25s ease, transform .25s ease;
-}
-.chatbot-chip:hover {
-  border-color: var(--gold-300);
-  color: var(--cream-50);
-  transform: translateY(-1px);
 }
 
 .chatbot-form {
@@ -1765,10 +1699,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 :root[data-theme="light"] .chatbot-launcher__badge {
   border-color: var(--ink-800);
 }
-:root[data-theme="light"] .chatbot-panel__status,
 :root[data-theme="light"] .chatbot-form,
 :root[data-theme="light"] .chatbot-log,
-:root[data-theme="light"] .chatbot-chip,
 :root[data-theme="light"] .chatbot-message--assistant .chatbot-bubble {
   background-color: rgba(255, 255, 255, 0.72);
 }
@@ -1857,13 +1789,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     width: min(22.4rem, calc(100vw - 1.4rem));
   }
   .chatbot-panel__header,
-  .chatbot-panel__status,
   .chatbot-form {
     padding-left: 0.85rem;
     padding-right: 0.85rem;
   }
-  .chatbot-log,
-  .chatbot-suggestions {
+  .chatbot-log {
     padding-left: 0.85rem;
     padding-right: 0.85rem;
   }
