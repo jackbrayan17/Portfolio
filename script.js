@@ -143,7 +143,7 @@ if (contactForm) {
       message,
     ].filter(Boolean).join('\n');
 
-    const href = `mailto:contact@jackbrayan.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const href = `mailto:hello@jackbrayan.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     if (contactFormNote) {
       contactFormNote.textContent = "Votre client mail va s'ouvrir avec un message déjà préparé.";
     }
