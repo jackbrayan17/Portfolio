@@ -8,10 +8,18 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', function (e) {
     const href = this.getAttribute('href');
     if (!href || href === '#') return;
-    const target = document.querySelector(href);
+    let target;
+    try {
+      target = document.querySelector(href);
+    } catch (error) {
+      return;
+    }
     if (!target) return;
     e.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, '', href);
+    }
   });
 });
 
@@ -151,6 +159,90 @@ if (contactForm) {
   });
 }
 
+// ---- JB Academy subscription form ----
+const academyForm = document.getElementById('academy-subscription-form');
+const academyFormNote = document.getElementById('academy-form-note');
+
+if (academyForm) {
+  const planSelect = academyForm.querySelector('select[name="plan"]');
+
+  document.querySelectorAll('[data-plan-card] .pricing-card__link').forEach((link) => {
+    link.addEventListener('click', () => {
+      const card = link.closest('[data-plan-card]');
+      const planName = card ? card.getAttribute('data-plan-card') : '';
+      if (!planSelect || !planName) return;
+      const option = Array.from(planSelect.options).find((item) => item.value.startsWith(planName));
+      if (option) planSelect.value = option.value;
+    });
+  });
+
+  academyForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(academyForm);
+    const payload = Object.fromEntries(data.entries());
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const whatsapp = String(data.get('whatsapp') || '').trim();
+    const plan = String(data.get('plan') || '').trim();
+    const path = String(data.get('path') || '').trim();
+    const level = String(data.get('level') || '').trim();
+    const message = String(data.get('message') || '').trim();
+    const endpoint = academyForm.dataset.endpoint || '../api/academy-subscribe.php';
+    const submitButton = academyForm.querySelector('button[type="submit"]');
+    const defaultButtonText = submitButton ? submitButton.innerHTML : '';
+
+    if (academyFormNote) {
+      academyFormNote.classList.remove('form-note--error', 'form-note--success');
+      academyFormNote.textContent = '';
+    }
+
+    if (!name || !email || !whatsapp || !plan || !path || !level || !message) {
+      if (academyFormNote) {
+        academyFormNote.classList.add('form-note--error');
+        academyFormNote.textContent = 'Completez tous les champs avant d’envoyer votre demande.';
+      }
+      return;
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i>Sending...';
+    }
+
+    fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then(async (response) => {
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || result.ok !== true) {
+          throw new Error(result.message || 'Unable to send the application.');
+        }
+        if (academyFormNote) {
+          academyFormNote.classList.add('form-note--success');
+          academyFormNote.textContent = 'Demande envoyee. Verifiez votre email: vous allez recevoir les liens Telegram, WhatsApp et les prochaines etapes.';
+        }
+        academyForm.reset();
+      })
+      .catch(() => {
+        if (academyFormNote) {
+          academyFormNote.classList.add('form-note--error');
+          academyFormNote.textContent = 'Le serveur email n’est pas encore configure. Contactez JB Academy sur WhatsApp: +237 694 10 35 85.';
+        }
+      })
+      .finally(() => {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.innerHTML = defaultButtonText;
+        }
+      });
+  });
+}
+
 // ---- Progressive text reveal ----
 const expandableTextSelector = [
   '#about p',
@@ -238,6 +330,7 @@ function revealMoreText(block) {
 function prepareExpandableText(block) {
   if (!block || block.dataset.expandableReady === 'true') return;
   if (!block.textContent || !block.textContent.trim()) return;
+  if (block.closest('.academy-page')) return;
   if (block.closest('form')) return;
 
   const content = document.createElement('span');

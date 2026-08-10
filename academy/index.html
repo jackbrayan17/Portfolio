@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T4RNCKP2');</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>JB Academy | Python, Data Science, AI Engineering & Chatbot Training</title>
+  <meta name="description"
+    content="JB Academy by Jack Brayan: formations pratiques en Python, Data Analysis, Data Science, Django, AI Engineering, Agentic AI, RAG, MCP, LangChain, CrewAI, WhatsApp bots et chatbot development." />
+  <meta name="keywords"
+    content="JB Academy, Jack Brayan Academy, jackbrayan academy, jackbrayan.com academy, formation Python Cameroun, formation Python Afrique, formation IA Cameroun, formation intelligence artificielle, formation AI Engineering, AI Engineer Cameroon, Agentic AI course, Agentic AI Afrique, formation chatbot, chatbot developer, WhatsApp bot training, Telegram bot training, OpenAI API course, Claude API course, RAG systems, vector databases, LangChain course, CrewAI course, MCP training, data analyst course, formation data analyst, data science Cameroun, machine learning course, Django backend course, Django DRF PostgreSQL, software engineering training, coding bootcamp Cameroon, formation developpeur Afrique, apprendre Python Yaounde, formation IA Yaounde, JB Academy Cameroon" />
+  <meta name="subject" content="Practical AI, software engineering, Python and data training" />
+  <meta name="classification" content="Education, Technology, Artificial Intelligence, Software Engineering, Data Science" />
+  <meta name="coverage" content="Cameroon, Africa, Francophone Africa, Worldwide" />
+  <meta name="author" content="Eyoum Atock Jean-Jacques Brayan" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#0b1220" id="theme-color-meta" />
+  <meta name="language" content="French" />
+  <link rel="canonical" href="https://jackbrayan.com/academy/" />
+  <link rel="alternate" hreflang="fr" href="https://jackbrayan.com/academy/" />
+  <link rel="alternate" hreflang="x-default" href="https://jackbrayan.com/academy/" />
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('jb-theme');
+        document.documentElement.dataset.theme = savedTheme || 'dark';
+      } catch (error) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    })();
+  </script>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Jack Brayan" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="JB Academy - Python, Data Science, AI Engineering & Chatbot Training" />
+  <meta property="og:description"
+    content="Prioritized learning paths, subscriptions and community support for Python, Data, Django, AI Engineering, Agentic AI and chatbot development." />
+  <meta property="og:url" content="https://jackbrayan.com/academy/" />
+  <meta property="og:image" content="https://jackbrayan.com/jb_logo.png" />
+  <meta property="og:image:alt" content="Logo Jack Brayan" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JB Academy - Python, Data Science, AI Engineering & Chatbot Training" />
+  <meta name="twitter:description"
+    content="Practical learning paths, monthly plans and community support for Python, Data, Django, AI, agents and chatbot builders." />
+  <meta name="twitter:image" content="https://jackbrayan.com/jb_logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: {
+              900: '#080d16',
+              800: '#0b1220',
+              700: '#121a2b',
+              600: '#1a2338',
+              500: '#232c44',
+            },
+            gold: {
+              50:  '#f0fbff',
+              100: '#dff6ff',
+              200: '#baeaff',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+            },
+            cream: {
+              50:  '#fbfaf5',
+              100: '#f5f1e6',
+              200: '#e9e2ce',
+              300: '#ccc4a9',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="icon" type="image/png" href="../jb_logo.png">
+  <link rel="apple-touch-icon" href="../jb_logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "JB Academy",
+    "url": "https://jackbrayan.com/academy/",
+    "description": "Practical Python, data science, Django, AI engineering, agentic AI and chatbot development training by Jack Brayan.",
+    "keywords": "Python training, AI Engineering, Agentic AI, Data Science, Django, Chatbot Development, RAG, MCP, LangChain, CrewAI, WhatsApp Bots, Cameroon tech training",
+    "areaServed": ["Cameroon", "Africa", "Worldwide"],
+    "founder": {
+      "@type": "Person",
+      "name": "Eyoum Atock Jean-Jacques Brayan",
+      "alternateName": "Jack Brayan",
+      "url": "https://jackbrayan.com/"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "academy@jackbrayan.com",
+      "telephone": "+237694103585",
+      "contactType": "JB Academy admissions"
+    },
+    "sameAs": [
+      "https://t.me/+K5MJK6HmlWQ4NTlk",
+      "https://chat.whatsapp.com/JTVur2dpy35JJAdrFlpQxo"
+    ],
+    "hasPart": [
+      {"@type": "Course", "name": "Python Developer", "description": "Python Fundamentals, OOP, APIs, Databases and Automation."},
+      {"@type": "Course", "name": "Data Analyst", "description": "Pandas, NumPy, Visualization, Statistics and Dashboarding."},
+      {"@type": "Course", "name": "Data Scientist", "description": "Machine Learning, Feature Engineering, Model Evaluation and Deployment."},
+      {"@type": "Course", "name": "Django Backend Engineer", "description": "Django, DRF, PostgreSQL, Authentication and Deployment."},
+      {"@type": "Course", "name": "AI Engineer & Agentic Systems", "description": "Generative AI, LLM fundamentals, Prompt Engineering, RAG, Vector Databases, LangChain, CrewAI, Multi-Agent Systems, MCP, AI Workflows and AI Product Design."},
+      {"@type": "Course", "name": "AI Chatbot Developer", "description": "OpenAI APIs, Claude APIs, RAG, WhatsApp Bots, Telegram Bots, Customer Support Bots and E-commerce Bots."}
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "JB Academy Subscriptions",
+      "itemListElement": [
+        {"@type": "Offer", "name": "Starter", "price": "5000", "priceCurrency": "XAF"},
+        {"@type": "Offer", "name": "Pro", "price": "15000", "priceCurrency": "XAF"},
+        {"@type": "Offer", "name": "Premium", "price": "50000", "priceCurrency": "XAF"},
+        {"@type": "Offer", "name": "Enterprise", "priceSpecification": {"@type": "PriceSpecification", "price": "0", "priceCurrency": "XAF"}}
+      ]
+    }
+  }
+  </script>
+</head>
+
+<body class="academy-page bg-ink-900 text-cream-100 font-sans antialiased selection:bg-gold-300 selection:text-ink-900">
+  <a href="#main" class="skip-link">Aller au contenu</a>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50">
+    <div class="mx-auto max-w-7xl px-5 md:px-8 h-20 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-3 group" aria-label="Jack Brayan - Accueil">
+        <img src="../jb_logo.png" alt="Logo Jack Brayan" width="44" height="44"
+          class="w-11 h-11 rounded-full ring-1 ring-gold-300/40 group-hover:ring-gold-300 transition" />
+        <span class="leading-tight hidden sm:block">
+          <span class="block font-serif text-lg text-cream-50 tracking-wide">Jack Brayan</span>
+          <span class="block text-[11px] uppercase tracking-[0.28em] text-gold-300">JB Academy</span>
+        </span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Navigation principale">
+        <a href="../" class="nav-link">Portfolio</a>
+        <a href="#paths" class="nav-link">Paths</a>
+        <a href="#plans" class="nav-link">Plans</a>
+        <a href="#community" class="nav-link">Community</a>
+        <a href="#why" class="nav-link">Why</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Activer le mode clair"
+          aria-pressed="false">
+          <span class="theme-toggle__icon" aria-hidden="true"><i class="fas fa-moon"></i></span>
+          <span class="theme-toggle__track" aria-hidden="true"><span class="theme-toggle__thumb"></span></span>
+          <span class="theme-toggle__icon" aria-hidden="true"><i class="fas fa-sun"></i></span>
+        </button>
+        <a href="#subscribe" class="hidden md:inline-flex btn-primary text-xs">Join Academy</a>
+        <button id="hamburger-btn" class="lg:hidden p-2 rounded-md border border-white/10 hover:border-gold-300/40 transition"
+          aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i class="fas fa-bars text-cream-100"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="mobile-menu"
+    class="fixed inset-0 z-[60] bg-ink-900 transform translate-x-full transition-transform duration-500 lg:hidden"
+    aria-hidden="true">
+    <div class="h-full flex flex-col">
+      <div class="h-20 px-5 flex items-center justify-between border-b border-white/5">
+        <span class="font-serif text-lg">JB Academy</span>
+        <button onclick="toggleMenu()" aria-label="Fermer le menu"
+          class="p-2 rounded-md border border-white/10 hover:border-gold-300/40 transition">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="flex-1 px-8 py-10 flex flex-col justify-center gap-6 text-xl font-serif">
+        <a href="../" onclick="toggleMenu()" class="mobile-link">Portfolio</a>
+        <a href="#paths" onclick="toggleMenu()" class="mobile-link">Learning Paths</a>
+        <a href="#plans" onclick="toggleMenu()" class="mobile-link">Subscriptions</a>
+        <a href="#community" onclick="toggleMenu()" class="mobile-link">Community Hub</a>
+        <a href="#why" onclick="toggleMenu()" class="mobile-link">Why JB Academy?</a>
+        <a href="#subscribe" onclick="toggleMenu()" class="btn-primary text-sm justify-center mt-4">Join Academy</a>
+        <button type="button" class="theme-toggle theme-toggle--mobile" data-theme-toggle aria-label="Activer le mode clair"
+          aria-pressed="false">
+          <span class="theme-toggle__text">Mode clair</span>
+          <span class="theme-toggle__track" aria-hidden="true"><span class="theme-toggle__thumb"></span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <span id="top" class="sr-only"></span>
+
+    <section class="academy-hero academy-hero--minimal relative pt-32 md:pt-36 pb-14 md:pb-18 overflow-hidden">
+      <div class="mx-auto max-w-7xl px-5 md:px-8">
+        <div class="academy-hero__content" data-aos="fade-up">
+          <h1 class="academy-hero__title font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-cream-50 mb-5">
+            Build AI, Software &amp; Data Skills That Create Opportunities.
+          </h1>
+          <p class="academy-hero__lede text-base md:text-lg text-cream-200 mb-7 max-w-4xl">
+            Learn Python, AI Engineering, Agentic AI, Chatbot Development, Data Science and Real-World Software Engineering through practical projects.
+          </p>
+
+          <div class="academy-priority-nav" aria-label="JB Academy priority sections">
+            <a href="#paths"><i class="fas fa-route" aria-hidden="true"></i>Learning Paths</a>
+            <a href="#plans"><i class="fas fa-credit-card" aria-hidden="true"></i>Subscription Plans</a>
+            <a href="#community"><i class="fas fa-users" aria-hidden="true"></i>Community Hub</a>
+            <a href="#subscribe"><i class="fas fa-paper-plane" aria-hidden="true"></i>Apply now</a>
+          </div>
+
+          <dl class="academy-stats academy-stats--minimal grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="stat-card">
+              <dt class="stat-label">Students Trained</dt>
+              <dd class="stat-value">100+</dd>
+            </div>
+            <div class="stat-card">
+              <dt class="stat-label">Projects Built</dt>
+              <dd class="stat-value">30+</dd>
+            </div>
+            <div class="stat-card">
+              <dt class="stat-label">Hours of Content</dt>
+              <dd class="stat-value">120+</dd>
+            </div>
+            <div class="stat-card">
+              <dt class="stat-label">Community Members</dt>
+              <dd class="stat-value">500+</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="paths" class="py-16 md:py-24 border-y border-white/5 bg-ink-800/30">
+      <div class="mx-auto max-w-7xl px-5 md:px-8">
+        <header class="section-head">
+          <span class="eyebrow">Learning Paths</span>
+          <h2 class="section-title">Choose the skill path that moves you forward.</h2>
+          <p class="section-lede">Chaque parcours combine notions cles, exercices, livrables GitHub et projet final.</p>
+        </header>
+
+        <div class="learning-grid mt-12">
+          <article class="learning-card" data-aos="fade-up">
+            <div class="learning-card__top">
+              <span>Path 1</span>
+              <i class="fab fa-python" aria-hidden="true"></i>
+            </div>
+            <h3>Python Developer</h3>
+            <p class="learning-card__meta">6 semaines</p>
+            <ul>
+              <li>Python Fundamentals</li>
+              <li>OOP</li>
+              <li>APIs</li>
+              <li>Databases</li>
+              <li>Automation</li>
+            </ul>
+          </article>
+
+          <article class="learning-card" data-aos="fade-up">
+            <div class="learning-card__top">
+              <span>Path 2</span>
+              <i class="fas fa-chart-column" aria-hidden="true"></i>
+            </div>
+            <h3>Data Analyst</h3>
+            <p class="learning-card__meta">Projet final inclus</p>
+            <ul>
+              <li>Pandas</li>
+              <li>NumPy</li>
+              <li>Visualization</li>
+              <li>Statistics</li>
+              <li>Dashboarding</li>
+            </ul>
+          </article>
+
+          <article class="learning-card" data-aos="fade-up">
+            <div class="learning-card__top">
+              <span>Path 3</span>
+              <i class="fas fa-brain" aria-hidden="true"></i>
+            </div>
+            <h3>Data Scientist</h3>
+            <p class="learning-card__meta">ML portfolio track</p>
+            <ul>
+              <li>Machine Learning</li>
+              <li>Feature Engineering</li>
+              <li>Model Evaluation</li>
+              <li>Deployment</li>
+            </ul>
+          </article>
+
+          <article class="learning-card" data-aos="fade-up">
+            <div class="learning-card__top">
+              <span>Path 4</span>
+              <i class="fas fa-server" aria-hidden="true"></i>
+            </div>
+            <h3>Django Backend Engineer</h3>
+            <p class="learning-card__meta">API + deployment</p>
+            <ul>
+              <li>Django</li>
+              <li>DRF</li>
+              <li>PostgreSQL</li>
+              <li>Authentication</li>
+              <li>Deployment</li>
+            </ul>
+          </article>
+
+          <article class="learning-card learning-card--premium" data-aos="fade-up">
+            <div class="learning-card__top">
+              <span>Path 5 - Premium</span>
+              <i class="fas fa-diagram-project" aria-hidden="true"></i>
+            </div>
+            <h3>AI Engineer &amp; Agentic Systems</h3>
+            <p class="learning-card__meta">Projet: assistant IA complet</p>
+            <ul>
+              <li>Generative AI</li>
+              <li>LLM Fundamentals</li>
+              <li>Prompt Engineering</li>
+              <li>RAG Systems</li>
+              <li>Vector Databases</li>
+              <li>LangChain</li>
+              <li>CrewAI</li>
+              <li>Multi-Agent Systems</li>
+              <li>MCP</li>
+              <li>AI Workflows</li>
+              <li>AI Product Design</li>
+            </ul>
+          </article>
+
+          <article class="learning-card learning-card--premium" data-aos="fade-up">
+            <div class="learning-card__top">
+              <span>Path 6 - Premium</span>
+              <i class="fas fa-robot" aria-hidden="true"></i>
+            </div>
+            <h3>AI Chatbot Developer</h3>
+            <p class="learning-card__meta">Projet: chatbot SaaS</p>
+            <ul>
+              <li>OpenAI APIs</li>
+              <li>Claude APIs</li>
+              <li>RAG</li>
+              <li>WhatsApp Bots</li>
+              <li>Telegram Bots</li>
+              <li>Customer Support Bots</li>
+              <li>E-commerce Bots</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans" class="py-20 md:py-28 bg-ink-800/40 border-y border-white/5">
+      <div class="mx-auto max-w-7xl px-5 md:px-8">
+        <header class="section-head">
+          <span class="eyebrow">Subscription Plans</span>
+          <h2 class="section-title">Join with a monthly learning plan.</h2>
+          <p class="section-lede">Ne vendez pas seulement des cours: avancez avec des exercices, des lives, du mentorat et des revues de projets.</p>
+        </header>
+
+        <div class="pricing-grid mt-12">
+          <article class="pricing-card" data-plan-card="Starter" data-aos="fade-up">
+            <h3>Starter</h3>
+            <p class="pricing-card__price">5 000 FCFA <span>/ mois</span></p>
+            <ul>
+              <li>Telegram</li>
+              <li>Exercices</li>
+              <li>PDF</li>
+              <li>Challenges</li>
+            </ul>
+            <a href="#subscribe" class="pricing-card__link">Start here <i class="fas fa-arrow-down"></i></a>
+          </article>
+
+          <article class="pricing-card pricing-card--featured" data-plan-card="Pro" data-aos="fade-up">
+            <h3>Pro</h3>
+            <p class="pricing-card__price">15 000 FCFA <span>/ mois</span></p>
+            <ul>
+              <li>Tous les cours videos</li>
+              <li>Communaute</li>
+              <li>Certificats</li>
+              <li>Sessions live</li>
+            </ul>
+            <a href="#subscribe" class="pricing-card__link">Select Pro <i class="fas fa-arrow-down"></i></a>
+          </article>
+
+          <article class="pricing-card pricing-card--premium" data-plan-card="Premium" data-aos="fade-up">
+            <h3>Premium</h3>
+            <p class="pricing-card__price">50 000 FCFA <span>/ mois</span></p>
+            <ul>
+              <li>Tous les cours</li>
+              <li>Mentorat</li>
+              <li>Revues de projets</li>
+              <li>Sessions IA avancees</li>
+              <li>Support prioritaire</li>
+            </ul>
+            <a href="#subscribe" class="pricing-card__link">Go premium <i class="fas fa-arrow-down"></i></a>
+          </article>
+
+          <article class="pricing-card" data-plan-card="Enterprise" data-aos="fade-up">
+            <h3>Enterprise</h3>
+            <p class="pricing-card__price">Sur devis</p>
+            <ul>
+              <li>Universites</li>
+              <li>Entreprises</li>
+              <li>Centres de formation</li>
+            </ul>
+            <a href="#subscribe" class="pricing-card__link">Request quote <i class="fas fa-arrow-down"></i></a>
+          </article>
+        </div>
+
+        <div id="subscribe" class="academy-subscribe-anchor" aria-hidden="true"></div>
+        <form id="academy-subscription-form" class="contact-form academy-form mt-12" action="../api/academy-subscribe.php" method="post" data-endpoint="../api/academy-subscribe.php" aria-label="Formulaire d'abonnement JB Academy">
+          <div class="contact-form__head">
+            <div>
+              <span class="contact-label">Subscription form</span>
+              <h3 class="contact-form__title">Apply to JB Academy.</h3>
+            </div>
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+          </div>
+
+          <div class="contact-form__grid">
+            <label>
+              <span>Nom complet</span>
+              <input type="text" name="name" autocomplete="name" placeholder="Votre nom" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" placeholder="vous@email.com" required>
+            </label>
+            <label>
+              <span>WhatsApp</span>
+              <input type="tel" name="whatsapp" autocomplete="tel" placeholder="+237 6..." required>
+            </label>
+            <label>
+              <span>Plan</span>
+              <select name="plan" required>
+                <option value="Starter - 5 000 FCFA / mois">Starter - 5 000 FCFA / mois</option>
+                <option value="Pro - 15 000 FCFA / mois">Pro - 15 000 FCFA / mois</option>
+                <option value="Premium - 50 000 FCFA / mois">Premium - 50 000 FCFA / mois</option>
+                <option value="Enterprise - Sur devis">Enterprise - Sur devis</option>
+              </select>
+            </label>
+            <label>
+              <span>Learning path</span>
+              <select name="path" required>
+                <option value="Python Developer">Python Developer</option>
+                <option value="Data Analyst">Data Analyst</option>
+                <option value="Data Scientist">Data Scientist</option>
+                <option value="Django Backend Engineer">Django Backend Engineer</option>
+                <option value="AI Engineer & Agentic Systems">AI Engineer &amp; Agentic Systems</option>
+                <option value="AI Chatbot Developer">AI Chatbot Developer</option>
+              </select>
+            </label>
+            <label>
+              <span>Niveau actuel</span>
+              <select name="level" required>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="contact-form__message">
+            <span>Objectif</span>
+            <textarea name="message" rows="5" placeholder="Votre objectif, disponibilite, experience actuelle ou projet a construire." required></textarea>
+          </label>
+          <label class="academy-hp" aria-hidden="true" tabindex="-1">
+            <span>Website</span>
+            <input type="text" name="website" autocomplete="off" tabindex="-1">
+          </label>
+
+          <div class="contact-form__actions">
+            <button type="submit" class="btn-primary">
+              <i class="fas fa-paper-plane mr-2"></i>Send application
+            </button>
+            <a href="https://wa.me/237694103585?text=Hello%20Jack%2C%20I%20want%20to%20join%20JB%20Academy." target="_blank" rel="noopener" class="btn-ghost">
+              <i class="fab fa-whatsapp mr-2"></i>WhatsApp direct
+            </a>
+          </div>
+          <p id="academy-form-note" class="form-note" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="community" class="py-20 md:py-28">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <header class="section-head text-center">
+          <span class="eyebrow justify-center">Community Hub</span>
+          <h2 class="section-title">Learn with people who are building too.</h2>
+          <p class="section-lede mx-auto">Actualites, ressources, opportunites, support, networking et challenges.</p>
+        </header>
+
+        <div class="community-grid mt-12">
+          <a href="https://t.me/+K5MJK6HmlWQ4NTlk" target="_blank" rel="noopener" class="community-card" data-aos="fade-up">
+            <i class="fab fa-telegram" aria-hidden="true"></i>
+            <span>Telegram Channel</span>
+            <strong>Actualites · Ressources · Opportunites</strong>
+          </a>
+          <a href="https://chat.whatsapp.com/JTVur2dpy35JJAdrFlpQxo" target="_blank" rel="noopener" class="community-card" data-aos="fade-up">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            <span>WhatsApp Community</span>
+            <strong>Support · Networking · Challenges</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="py-16 md:py-24 bg-ink-800/40 border-y border-white/5">
+      <div class="mx-auto max-w-7xl px-5 md:px-8">
+        <header class="section-head">
+          <span class="eyebrow">Why JB Academy?</span>
+          <h2 class="section-title">Practical training, direct support.</h2>
+          <p class="section-lede">Une formation orientee portfolio, projets reels, marche africain et standards internationaux.</p>
+        </header>
+
+        <div class="academy-feature-grid mt-10">
+          <article class="academy-feature" data-aos="fade-up">
+            <i class="fas fa-code-branch" aria-hidden="true"></i>
+            <h3>Real Projects</h3>
+            <p>Construire des applications reelles, pas seulement suivre des videos.</p>
+          </article>
+          <article class="academy-feature" data-aos="fade-up">
+            <i class="fas fa-globe-africa" aria-hidden="true"></i>
+            <h3>African Market Focus</h3>
+            <p>Cas d'usage locaux et internationaux: business, data, automation et IA.</p>
+          </article>
+          <article class="academy-feature" data-aos="fade-up">
+            <i class="fas fa-briefcase" aria-hidden="true"></i>
+            <h3>Career-Oriented</h3>
+            <p>Portfolio, GitHub, CV et preparation aux entretiens techniques.</p>
+          </article>
+          <article class="academy-feature" data-aos="fade-up">
+            <i class="fas fa-comments" aria-hidden="true"></i>
+            <h3>Community</h3>
+            <p>Support via WhatsApp et Telegram pour rester motive et avance.</p>
+          </article>
+          <article class="academy-feature" data-aos="fade-up">
+            <i class="fas fa-chalkboard-user" aria-hidden="true"></i>
+            <h3>Mentorship</h3>
+            <p>Sessions de coaching regulieres, revues de projets et guidance technique.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5 bg-ink-900">
+    <div class="mx-auto max-w-7xl px-5 md:px-8 py-10 grid md:grid-cols-3 gap-8 items-start">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="../jb_logo.png" alt="" width="36" height="36" class="w-9 h-9 rounded-full ring-1 ring-gold-300/30" />
+          <span class="font-serif text-lg">JB Academy</span>
+        </div>
+        <p class="mt-3 text-sm text-cream-300 max-w-xs">AI, software and data training by Jack Brayan.</p>
+      </div>
+      <nav class="text-sm text-cream-300" aria-label="Pied de page">
+        <h4 class="text-xs uppercase tracking-[0.25em] text-gold-300 mb-3">Academy</h4>
+        <ul class="space-y-2">
+          <li><a href="#paths" class="hover:text-cream-50 transition">Learning Paths</a></li>
+          <li><a href="#plans" class="hover:text-cream-50 transition">Subscription Plans</a></li>
+          <li><a href="#community" class="hover:text-cream-50 transition">Community Hub</a></li>
+          <li><a href="#why" class="hover:text-cream-50 transition">Why JB Academy?</a></li>
+        </ul>
+      </nav>
+      <div class="text-sm text-cream-300">
+        <h4 class="text-xs uppercase tracking-[0.25em] text-gold-300 mb-3">Contact direct</h4>
+        <p class="space-y-2">
+          <a href="mailto:academy@jackbrayan.com" class="block hover:text-cream-50 transition">academy@jackbrayan.com</a>
+          <a href="mailto:jackbrayan1707@gmail.com" class="block hover:text-cream-50 transition">jackbrayan1707@gmail.com</a>
+          <a href="tel:+237694103585" class="block hover:text-cream-50 transition">+237 694 10 35 85</a>
+          <a href="../" class="block hover:text-cream-50 transition">Back to portfolio</a>
+        </p>
+      </div>
+    </div>
+    <div class="border-t border-white/5">
+      <div class="mx-auto max-w-7xl px-5 md:px-8 py-6 text-center md:flex md:items-center md:justify-between text-xs text-cream-300">
+        <span>&copy; <span id="year">2026</span> Eyoum Atock Jean-Jacques Brayan - Tous droits reserves.</span>
+        <span>Concu &amp; developpe avec soin a Yaounde.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" id="back-to-top" aria-label="Retour en haut">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script src="../script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script>
+    window.addEventListener('load', () => {
+      if (window.AOS) AOS.init({ duration: 700, easing: 'ease-out', once: true, offset: 60 });
+    });
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J18XDSMKK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8J18XDSMKK');
+  </script>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4RNCKP2"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+</body>
+</html>
