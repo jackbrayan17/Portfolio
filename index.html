@@ -217,6 +217,10 @@
       </a>
 
       <nav class="hidden lg:flex items-center gap-8" aria-label="Navigation principale">
+        <a href="sites/" class="nav-link text-gold-300 font-semibold flex items-center gap-1.5 hover:text-white transition">
+          <span class="px-1.5 py-0.5 rounded text-[10px] bg-orange-500/20 text-orange-400 border border-orange-500/30 font-bold uppercase tracking-wider animate-pulse">-50%</span>
+          Créer un site
+        </a>
         <a href="#experience" class="nav-link">Expérience</a>
         <a href="#projects" class="nav-link">Projets</a>
         <a href="academy/" class="nav-link">Academy</a>
@@ -231,6 +235,9 @@
           <span class="theme-toggle__track" aria-hidden="true"><span class="theme-toggle__thumb"></span></span>
           <span class="theme-toggle__icon" aria-hidden="true"><i class="fas fa-sun"></i></span>
         </button>
+        <a href="sites/" class="hidden md:inline-flex btn-outline text-xs border-orange-500/50 text-orange-300 hover:bg-orange-500/10">
+          <i class="fas fa-fire text-orange-400 mr-1.5"></i>Offre -50%
+        </a>
         <a href="cv_JB_FR.pdf" download
           class="hidden md:inline-flex btn-outline text-xs">
           <i class="fas fa-file-arrow-down mr-2"></i>CV
@@ -257,6 +264,9 @@
         </button>
       </div>
       <div class="flex-1 px-8 py-10 flex flex-col justify-center gap-6 text-xl font-serif">
+        <a href="sites/" onclick="toggleMenu()" class="mobile-link text-orange-400 font-bold flex items-center gap-2">
+          <i class="fas fa-fire text-orange-500"></i> Offre Sites Web (-50%)
+        </a>
         <a href="#experience" onclick="toggleMenu()" class="mobile-link">Expérience</a>
         <a href="#projects" onclick="toggleMenu()" class="mobile-link">Projets</a>
         <a href="academy/" onclick="toggleMenu()" class="mobile-link">Academy</a>
@@ -314,17 +324,17 @@
             </ul> -->
 
             <div class="flex flex-wrap gap-3 mb-10">
-              <a href="#projects" class="btn-primary">
-                <i class="fas fa-compass mr-2"></i>Découvrir mes projets
+              <a href="sites/" class="btn-primary !bg-gradient-to-r !from-orange-500 !to-amber-500 hover:!from-orange-600 hover:!to-amber-600 !border-none !text-white shadow-lg shadow-orange-500/20 font-bold">
+                <i class="fas fa-fire mr-2"></i>Créer votre site web (-50%)
+              </a>
+              <a href="#projects" class="btn-outline">
+                <i class="fas fa-compass mr-2"></i>Projets
               </a>
               <button type="button" class="btn-ghost" data-chatbot-open>
-                <i class="fas fa-comment-dots mr-2"></i>Me poser une question
+                <i class="fas fa-comment-dots mr-2"></i>Question ?
               </button>
               <a href="cv_JB_FR.pdf" download class="btn-outline">
                 <i class="fas fa-file-arrow-down mr-2"></i>CV (FR)
-              </a>
-              <a href="cv_JB_EN.pdf" download class="btn-ghost">
-                <i class="fas fa-file-arrow-down mr-2"></i>CV (EN)
               </a>
             </div>
 
@@ -373,6 +383,31 @@
           <span class="opacity-40">·</span>
           <span>BEAC</span>
         </div>
+      </div>
+    </section>
+
+    <!-- PROMO CTA BANNER -->
+    <section class="relative py-12 bg-gradient-to-r from-orange-950/40 via-ink-800 to-amber-950/40 border-y border-orange-500/30 overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="mx-auto max-w-7xl px-5 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white shrink-0 shadow-lg shadow-orange-500/30 mt-1">
+            <i class="fas fa-fire text-xl"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-orange-500 text-ink-900 uppercase tracking-widest">Offre Spéciale Lancement</span>
+              <span class="text-xs text-orange-400 font-semibold">• 10 premiers clients seulement</span>
+            </div>
+            <h3 class="font-serif text-2xl md:text-3xl text-cream-50 font-bold">Besoin d'un site web professionnel ? Profitez de <span class="text-orange-400 underline decoration-orange-500/50">-50% de réduction</span> !</h3>
+            <p class="text-cream-300 text-sm mt-1">
+              Site Vitrine à <strong class="text-cream-50 font-semibold">100 000 FCFA</strong> <span class="line-through text-cream-300/60 text-xs">200 000 FCFA</span> &amp; Site E-commerce à <strong class="text-cream-50 font-semibold">200 000 FCFA</strong> <span class="line-through text-cream-300/60 text-xs">400 000 FCFA</span>. Nom de domaine &amp; e-mail pro offerts !
+            </p>
+          </div>
+        </div>
+        <a href="sites/" class="btn-primary !bg-gradient-to-r !from-orange-500 !to-amber-500 hover:!from-orange-600 hover:!to-amber-600 !border-none !text-white font-bold whitespace-nowrap shadow-xl shadow-orange-500/25 group px-6 py-3.5">
+          Découvrir les offres <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+        </a>
       </div>
     </section>
 
