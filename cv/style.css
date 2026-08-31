@@ -1,0 +1,48 @@
+/* ATS-friendly CV — single column, standard fonts, real text, print-ready A4 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Calibri", "Carlito", Arial, "Helvetica Neue", sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.4;
+  color: #1a1a1a;
+  background: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 40px;
+}
+h1 { font-size: 20pt; letter-spacing: .3px; }
+.role { font-size: 11.5pt; font-weight: 700; color: #0b4f8a; margin-top: 2px; }
+.contact { font-size: 9.5pt; color: #333; margin-top: 6px; }
+.contact a { color: #333; text-decoration: none; }
+h2 {
+  font-size: 11pt; text-transform: uppercase; letter-spacing: 1px;
+  color: #0b4f8a; border-bottom: 1.5px solid #0b4f8a;
+  padding-bottom: 2px; margin: 16px 0 8px;
+}
+p.summary { margin-bottom: 4px; text-align: justify; }
+.skills p { margin-bottom: 3px; }
+.skills strong { display: inline-block; min-width: 130px; }
+.job { margin-bottom: 9px; }
+.job-head { display: flex; justify-content: space-between; flex-wrap: wrap; }
+.job-title { font-weight: 700; }
+.job-meta { color: #444; }
+.job-dates { color: #444; white-space: nowrap; }
+ul { margin: 3px 0 0 18px; }
+li { margin-bottom: 2px; }
+.two { display: flex; justify-content: space-between; flex-wrap: wrap; }
+.edu-line { margin-bottom: 4px; }
+@page { margin: 11mm 12mm; }
+@media print {
+  body { padding: 0; font-size: 9pt; line-height: 1.26; max-width: 100%; }
+  a { color: #1a1a1a; }
+  h1 { font-size: 16pt; }
+  .role { font-size: 10pt; }
+  .contact { font-size: 8.5pt; margin-top: 4px; }
+  h2 { margin: 7px 0 4px; font-size: 9.5pt; }
+  p.summary { text-align: left; }
+  .skills p { margin-bottom: 2px; }
+  .job { margin-bottom: 5px; }
+  ul { margin-top: 2px; }
+  li { margin-bottom: 1px; }
+  header + h2 { margin-top: 5px; }
+}
