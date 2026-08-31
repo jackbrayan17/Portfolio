@@ -1,48 +1,92 @@
-/* ATS-friendly CV — single column, standard fonts, real text, print-ready A4 */
+/* Jack Brayan — targeted résumés. Single-column, ATS-safe, print-optimised. */
 * { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --accent: #1f5fa8;
+  --accent-dark: #16406f;
+  --ink: #1b2430;
+  --muted: #586372;
+  --line: #dde3ea;
+  --tint: #eef3f9;
+}
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
-  font-family: "Calibri", "Carlito", Arial, "Helvetica Neue", sans-serif;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-size: 10.5pt;
-  line-height: 1.4;
-  color: #1a1a1a;
+  line-height: 1.42;
+  color: var(--ink);
   background: #fff;
-  max-width: 800px;
+  max-width: 820px;
   margin: 0 auto;
-  padding: 32px 40px;
+  padding: 34px 42px;
 }
-h1 { font-size: 20pt; letter-spacing: .3px; }
-.role { font-size: 11.5pt; font-weight: 700; color: #0b4f8a; margin-top: 2px; }
-.contact { font-size: 9.5pt; color: #333; margin-top: 6px; }
-.contact a { color: #333; text-decoration: none; }
+
+/* ---------- Header ---------- */
+header { border-bottom: 3px solid var(--accent); padding-bottom: 14px; margin-bottom: 4px; }
+h1 { font-size: 22pt; font-weight: 700; letter-spacing: .2px; line-height: 1.08; color: var(--ink); }
+.role { margin-top: 5px; font-size: 11pt; font-weight: 600; color: var(--accent); letter-spacing: .2px; }
+.contact { margin-top: 11px; display: flex; flex-wrap: wrap; gap: 5px 15px; font-size: 9pt; }
+.contact a, .contact span { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); text-decoration: none; }
+.contact a:hover { color: var(--accent); }
+.contact svg { width: 13px; height: 13px; flex: none; color: var(--accent); }
+
+/* ---------- Section headings ---------- */
 h2 {
-  font-size: 11pt; text-transform: uppercase; letter-spacing: 1px;
-  color: #0b4f8a; border-bottom: 1.5px solid #0b4f8a;
-  padding-bottom: 2px; margin: 16px 0 8px;
+  font-size: 10.5pt; text-transform: uppercase; letter-spacing: 1.4px; font-weight: 700;
+  color: var(--accent); margin: 15px 0 8px; padding-left: 23px; position: relative;
 }
-p.summary { margin-bottom: 4px; text-align: justify; }
-.skills p { margin-bottom: 3px; }
-.skills strong { display: inline-block; min-width: 130px; }
-.job { margin-bottom: 9px; }
-.job-head { display: flex; justify-content: space-between; flex-wrap: wrap; }
+h2::before {
+  content: ""; position: absolute; left: 0; top: 1px;
+  width: 15px; height: 15px; background-repeat: no-repeat; background-position: center; background-size: contain;
+}
+h2::after { content: ""; display: block; height: 1px; background: var(--line); margin-top: 5px; }
+h2:nth-of-type(1)::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231f5fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>'); }
+h2:nth-of-type(2)::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231f5fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'); }
+h2:nth-of-type(3)::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231f5fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>'); }
+h2:nth-of-type(4)::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231f5fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>'); }
+h2:nth-of-type(5)::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231f5fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg>'); }
+h2:nth-of-type(6)::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231f5fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>'); }
+
+/* ---------- Summary ---------- */
+p.summary { margin-bottom: 2px; text-align: justify; }
+
+/* ---------- Skills ---------- */
+.skills { background: var(--tint); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; padding: 9px 14px; }
+.skills p { margin: 3px 0; display: flex; gap: 12px; }
+.skills strong { flex: 0 0 118px; color: var(--accent-dark); font-weight: 700; }
+
+/* ---------- Experience ---------- */
+.job { margin-bottom: 9px; padding-bottom: 9px; border-bottom: 1px solid var(--line); }
+.job:last-of-type { border-bottom: none; padding-bottom: 0; }
+.job-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1px 12px; }
 .job-title { font-weight: 700; }
-.job-meta { color: #444; }
-.job-dates { color: #444; white-space: nowrap; }
-ul { margin: 3px 0 0 18px; }
+.job-meta { color: var(--muted); }
+.job-dates { color: var(--accent-dark); font-weight: 600; white-space: nowrap; }
+ul { margin: 4px 0 0 17px; }
 li { margin-bottom: 2px; }
-.two { display: flex; justify-content: space-between; flex-wrap: wrap; }
+li::marker { color: var(--accent); }
+
+/* ---------- Education ---------- */
 .edu-line { margin-bottom: 4px; }
+
+/* ---------- Print ---------- */
 @page { margin: 11mm 12mm; }
 @media print {
-  body { padding: 0; font-size: 9pt; line-height: 1.26; max-width: 100%; }
-  a { color: #1a1a1a; }
+  body { padding: 0; font-size: 8.6pt; line-height: 1.25; max-width: 100%; }
+  a { color: inherit; }
+  header { padding-bottom: 8px; margin-bottom: 2px; }
   h1 { font-size: 16pt; }
-  .role { font-size: 10pt; }
-  .contact { font-size: 8.5pt; margin-top: 4px; }
-  h2 { margin: 7px 0 4px; font-size: 9.5pt; }
+  .role { font-size: 9.5pt; margin-top: 3px; }
+  .contact { font-size: 7.4pt; gap: 2px 10px; margin-top: 6px; }
+  .contact svg { width: 11px; height: 11px; }
+  h2 { font-size: 9pt; letter-spacing: 1.1px; margin: 7px 0 4px; padding-left: 20px; }
+  h2::before { width: 13px; height: 13px; top: 0; }
+  h2::after { margin-top: 3px; }
   p.summary { text-align: left; }
-  .skills p { margin-bottom: 2px; }
-  .job { margin-bottom: 5px; }
+  .skills { padding: 6px 10px; }
+  .skills p { margin: 1.5px 0; gap: 9px; }
+  .skills strong { flex-basis: 100px; }
+  .job { margin-bottom: 4.5px; padding-bottom: 4.5px; }
   ul { margin-top: 2px; }
-  li { margin-bottom: 1px; }
-  header + h2 { margin-top: 5px; }
+  li { margin-bottom: 0.5px; }
+  .edu-line { margin-bottom: 2px; }
 }
