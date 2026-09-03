@@ -175,9 +175,9 @@
         '</div>' +
         '<div class="mt-auto grid grid-cols-2 gap-2 text-sm font-semibold">' +
           '<a class="btn btn-o rounded-lg px-3 py-2 text-center" href="' + t.frFile + '">' + view + ' FR</a>' +
-          '<a class="btn btn-p rounded-lg px-3 py-2 text-center" href="pdf/' + t.frFile.replace(".html", ".pdf") + '" download><i class="fas fa-file-arrow-down mr-1.5"></i>PDF FR</a>' +
+          '<a class="btn btn-p rounded-lg px-3 py-2 text-center" href="pdf/' + t.frFile.replace(/^\d+_/, "").replace(".html", ".pdf") + '" download><i class="fas fa-file-arrow-down mr-1.5"></i>PDF FR</a>' +
           '<a class="btn btn-o rounded-lg px-3 py-2 text-center" href="' + t.enFile + '">' + view + ' EN</a>' +
-          '<a class="btn btn-p rounded-lg px-3 py-2 text-center" href="pdf/' + t.enFile.replace(".html", ".pdf") + '" download><i class="fas fa-file-arrow-down mr-1.5"></i>PDF EN</a>' +
+          '<a class="btn btn-p rounded-lg px-3 py-2 text-center" href="pdf/' + t.enFile.replace(/^\d+_/, "").replace(".html", ".pdf") + '" download><i class="fas fa-file-arrow-down mr-1.5"></i>PDF EN</a>' +
         '</div>' +
       '</article>';
   }
