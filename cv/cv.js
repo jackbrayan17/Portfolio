@@ -5,7 +5,8 @@
     '02_Ingenieur-Full-Stack_FR.html': '02_Full-Stack-Engineer_EN.html',
     '03_Ingenieur-Data_FR.html': '03_Data-Engineer_EN.html',
     '04_Ingenieur-Forward-Development_FR.html': '04_Forward-Development-Engineer_EN.html',
-    '05_Architecte-Solutions_FR.html': '05_Solutions-Architect_EN.html'
+    '05_Architecte-Solutions_FR.html': '05_Solutions-Architect_EN.html',
+    '06_Developpeur-Full-Stack-Laravel_FR.html': '06_Laravel-Full-Stack-Developer_EN.html'
   };
   var EN_TO_FR = {};
   Object.keys(PAIRS).forEach(function (k) { EN_TO_FR[PAIRS[k]] = k; });
