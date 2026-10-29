@@ -1,0 +1,11 @@
+{
+  "name": "jb-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/tailwind.css -o ./tailwind.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
