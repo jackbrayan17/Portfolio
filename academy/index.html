@@ -540,7 +540,7 @@
   </main>
 
   <footer class="border-t border-white/5 bg-ink-900">
-    <div class="mx-auto max-w-7xl px-5 md:px-8 py-10 grid md:grid-cols-3 gap-8 items-start">
+    <div class="mx-auto max-w-7xl px-5 md:px-8 py-10 grid sm:grid-cols-2 md:grid-cols-4 gap-8 items-start">
       <div>
         <div class="flex items-center gap-3">
           <img src="../jb_logo.png" alt="" width="36" height="36" class="w-9 h-9 rounded-full ring-1 ring-gold-300/30" />
@@ -557,6 +557,15 @@
           <li><a href="#why" class="hover:text-cream-50 transition">Why JB Academy?</a></li>
         </ul>
       </nav>
+      <nav class="text-sm text-cream-300" aria-label="Légal &amp; Support">
+        <h4 class="text-xs uppercase tracking-[0.25em] text-gold-300 mb-3">Légal &amp; Support</h4>
+        <ul class="space-y-2">
+          <li><a href="/support/" class="hover:text-cream-50 transition">Support &amp; FAQ</a></li>
+          <li><a href="/privacy/" class="hover:text-cream-50 transition">Politique de confidentialité</a></li>
+          <li><a href="/terms/" class="hover:text-cream-50 transition">Conditions d'utilisation</a></li>
+          <li><a href="/privacy/#data-deletion" class="hover:text-cream-50 transition">Suppression des données</a></li>
+        </ul>
+      </nav>
       <div class="text-sm text-cream-300">
         <h4 class="text-xs uppercase tracking-[0.25em] text-gold-300 mb-3">Contact direct</h4>
         <p class="space-y-2">
@@ -570,7 +579,13 @@
     <div class="border-t border-white/5">
       <div class="mx-auto max-w-7xl px-5 md:px-8 py-6 text-center md:flex md:items-center md:justify-between text-xs text-cream-300">
         <span>&copy; <span id="year">2026</span> Eyoum Atock Jean-Jacques Brayan - Tous droits reserves.</span>
-        <span>Concu &amp; developpe avec soin a Yaounde.</span>
+        <div class="mt-2 md:mt-0 space-x-3">
+          <a href="/support/" class="hover:text-gold-300 transition">Support</a>
+          <span>·</span>
+          <a href="/privacy/" class="hover:text-gold-300 transition">Privacy</a>
+          <span>·</span>
+          <a href="/terms/" class="hover:text-gold-300 transition">Terms</a>
+        </div>
       </div>
     </div>
   </footer>
