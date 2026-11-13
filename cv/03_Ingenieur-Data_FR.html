@@ -37,6 +37,7 @@
 <p><strong>Donn&eacute;es terrain</strong> KoboToolbox / KoboCollect &mdash; conception de formulaires, collecte d&rsquo;enqu&ecirc;tes hors-ligne, export et nettoyage des donn&eacute;es</p>
 <p><strong>Cloud/DevOps</strong> AWS EC2, Git, CI/CD</p>
 <p><strong>IA pour la data</strong> Classification, extraction &amp; enrichissement assist&eacute;s par LLM dans les pipelines&nbsp;; inf&eacute;rence locale avec Ollama &amp; LM Studio (Gemma, Mistral, Qwen, Kimi) pour donn&eacute;es priv&eacute;es on-premise</p>
+<p><strong>Agentic infra ops</strong> Agents IA automatisant l&rsquo;offload de stockage (pooling multi-comptes Cloudflare R2) et la r&eacute;silience (cache p&eacute;riph&eacute;rique, failover automatis&eacute;) pour plateformes data en production</p>
 </div>
 
 <h2>Exp&eacute;rience</h2>
@@ -47,6 +48,7 @@
 <li>Direction technique du studio IA MoSCoW &mdash; logiciels sur-mesure, sites web et fonctionnalit&eacute;s IA (chatbots, automatisation, analyse de donn&eacute;es) pour des clients au Cameroun et &agrave; l'international.</li>
 <li>Conception, d&eacute;veloppement et d&eacute;ploiement du site vitrine moscow.cm.</li>
 <li>UI/UX et SEO technique approfondis de prospect.moscow.cm, plateforme IA de prospection B2B : int&eacute;gration Google Search Console, indexation des pages, Google Analytics &amp; Tag Manager.</li>
+<li>Conception de Crib (crib.moscow.cm), une couche d&rsquo;infrastructure pilot&eacute;e par agents IA&nbsp;: offloading autonome vers un pool multi-comptes Cloudflare R2 (z&eacute;ro frais de bande passante, 30&nbsp;Go+ de stockage gratuit cumul&eacute;), cache p&eacute;riph&eacute;rique global via Cloudflare Worker, et failover automatique r&eacute;acheminant le trafic en cas de panne d&rsquo;origine.</li>
 </ul>
 </div>
 
@@ -79,6 +81,7 @@
 <li><strong>Big Data Pipeline</strong> &mdash; stack de bout en bout&nbsp;: ingestion &rarr; <strong>Kafka</strong> &rarr; traitement <strong>Spark</strong> &rarr; stockage <strong>MinIO</strong> &rarr; analytique/BI, conteneuris&eacute; avec Docker Compose.</li>
 <li><strong>DUMP &mdash; plateforme data de prospection.</strong> Ingestion de centaines de milliers d&rsquo;enregistrements d&rsquo;entreprises&nbsp;; nettoyage, d&eacute;doublonnage, classification sectorielle, enrichissement (pr&eacute;sence digitale), calcul d&rsquo;un score de prospect, puis alimentation des workflows commerciaux.</li>
 <li><strong>BI institutionnelle</strong> &mdash; mod&egrave;le dimensionnel (tables de faits/dimensions, dimension temps, cl&eacute;s de substitution) avec SSIS/SSAS et reporting Power BI.</li>
+<li><strong>Crib (crib.moscow.cm) &mdash; infrastructure agentique.</strong> Des agents IA offloadent de mani&egrave;re autonome les fichiers lourds vers un pool rotatif de comptes Cloudflare R2, avec cache p&eacute;riph&eacute;rique global via Worker et failover automatique en cas de panne d&rsquo;origine.</li>
 </ul>
 
 <h2>Formation</h2>
@@ -99,7 +102,7 @@
 </div>
 
 <div class="sign-block">
-<span class="sign-date">Mis &agrave; jour en octobre 2026</span>
+<span class="sign-date">Mis &agrave; jour en novembre 2026</span>
 <img class="sign-img" src="assets/signature.png" alt="Signature">
 </div>
 <script src="cv.js"></script>

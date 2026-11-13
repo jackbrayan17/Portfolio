@@ -35,6 +35,7 @@
 <p><strong>Donn&eacute;es</strong> PostgreSQL, MySQL, MongoDB&nbsp;; mod&eacute;lisation, indexation, migrations, KoboToolbox / KoboCollect</p>
 <p><strong>Plateforme</strong> Docker &amp; Compose, AWS EC2, CI/CD, Vercel/Render, gestion des environnements et des secrets</p>
 <p><strong>Architecture IA</strong> Fonctionnalit&eacute;s LLM avec r&eacute;partition local/h&eacute;berg&eacute; &mdash; inf&eacute;rence on-premise (Ollama, LM Studio&nbsp;; Gemma, Mistral, Qwen, Kimi) pour les charges sensibles, API h&eacute;berg&eacute;es ailleurs</p>
+<p><strong>R&eacute;silience &amp; agentic ops</strong> Automatisation d&rsquo;infrastructure pilot&eacute;e par agents&nbsp;: pooling multi-comptes de stockage cloud (Cloudflare R2), cache p&eacute;riph&eacute;rique global, failover automatique / routage auto-r&eacute;parateur</p>
 <p><strong>Leadership</strong> Choix technologiques, planification technique, revue de code, encadrement d&rsquo;&eacute;quipe, alignement des parties prenantes</p>
 </div>
 
@@ -46,6 +47,7 @@
 <li>Direction technique du studio IA MoSCoW &mdash; logiciels sur-mesure, sites web et fonctionnalit&eacute;s IA (chatbots, automatisation, analyse de donn&eacute;es) pour des clients au Cameroun et &agrave; l'international.</li>
 <li>Conception, d&eacute;veloppement et d&eacute;ploiement du site vitrine moscow.cm.</li>
 <li>UI/UX et SEO technique approfondis de prospect.moscow.cm, plateforme IA de prospection B2B : int&eacute;gration Google Search Console, indexation des pages, Google Analytics &amp; Tag Manager.</li>
+<li>Conception de Crib (crib.moscow.cm), une couche d&rsquo;infrastructure pilot&eacute;e par agents IA&nbsp;: offloading autonome vers un pool multi-comptes Cloudflare R2 (z&eacute;ro frais de bande passante, 30&nbsp;Go+ de stockage gratuit cumul&eacute;), cache p&eacute;riph&eacute;rique global via Cloudflare Worker, et failover automatique r&eacute;acheminant le trafic en cas de panne d&rsquo;origine.</li>
 </ul>
 </div>
 
@@ -85,6 +87,7 @@
 <li><strong>&Eacute;cosyst&egrave;me EEUEZ.</strong> Famille de produits connect&eacute;s (Market, Menu, Job) partageant identit&eacute;, design system et patterns d&rsquo;int&eacute;gration.</li>
 <li><strong>Int&eacute;gration paiement &amp; wallet.</strong> Int&eacute;gration de passerelle avec webhooks, v&eacute;rification de signature HMAC, traitement idempotent des transactions, flux Mobile Money.</li>
 <li><strong>Big Data Pipeline.</strong> Ingestion &eacute;v&eacute;nementielle (Kafka) &rarr; traitement Spark &rarr; MinIO &rarr; analytique, conteneuris&eacute;.</li>
+<li><strong>Crib (crib.moscow.cm) &mdash; infrastructure agentique &amp; r&eacute;silience.</strong> Des agents IA offloadent de mani&egrave;re autonome les fichiers lourds vers un pool rotatif de comptes Cloudflare R2&nbsp;; un Cloudflare Worker global met en cache les routes statiques et intercepte les erreurs d&rsquo;origine (502/503/504) pour servir une page de secours soign&eacute;e au lieu d&rsquo;une panne brute.</li>
 </ul>
 
 <h2>Formation</h2>
@@ -105,7 +108,7 @@
 </div>
 
 <div class="sign-block">
-<span class="sign-date">Mis &agrave; jour en octobre 2026</span>
+<span class="sign-date">Mis &agrave; jour en novembre 2026</span>
 <img class="sign-img" src="assets/signature.png" alt="Signature">
 </div>
 <script src="cv.js"></script>
