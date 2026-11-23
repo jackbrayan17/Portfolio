@@ -1,0 +1,24 @@
+# Jack Brayan — jackbrayan.com
+
+> Eyoum Atock Jean-Jacques Brayan, aussi connu comme Jack Brayan, est un ingénieur logiciel full-stack (IA, Tech, Big Data) basé à Yaoundé, Cameroun, Responsable Innovation chez NAUMUR SARL et CTO chez MoSCoW. Il propose aussi des services de création de sites web, d'applications mobiles et d'automatisation/digitalisation pour des clients partout dans le monde (remote-friendly).
+
+## Services
+
+- [Automatisation & digitalisation pour PME et commerces](https://jackbrayan.com/automatisation/) (English version: [Business automation & digitalization for SMEs](https://jackbrayan.com/automatisation/en/)): chatbots WhatsApp/Facebook, emails et factures automatiques, prise de rendez-vous automatisée, automatisation des posts Facebook & Instagram, synchronisation de données entre applications. Formules à partir de 50 000 FCFA. Devis personnalisé généré automatiquement par formulaire. Clients servis dans le monde entier.
+- [Création de sites web & applications mobiles](https://jackbrayan.com/sites/): sites vitrines, e-commerce et applications mobiles iOS/Android sur mesure, dès 100 000 FCFA, livraison sous 2 semaines.
+- [JB Academy](https://jackbrayan.com/academy/): formations en Python, Data Analyst, Data Scientist, Django Backend Engineer, AI Engineer & Agentic Systems, AI Chatbot Developer.
+- [Portfolio & expériences](https://jackbrayan.com/): projets, expérience professionnelle, compétences techniques (Django, Laravel, React, Next.js, FastAPI, AWS, Big Data).
+- [CV (FR/EN)](https://jackbrayan.com/cv/): curriculum vitae téléchargeable.
+
+## Contact
+
+- Email: hello@jackbrayan.com
+- WhatsApp / téléphone: +237 694 10 35 85
+- Localisation: Yaoundé, Cameroun — projets réalisés à distance pour des clients en Afrique, en Europe et dans le reste du monde.
+
+## Pages utiles
+
+- Politique de confidentialité: https://jackbrayan.com/privacy/
+- Conditions d'utilisation: https://jackbrayan.com/terms/
+- Support: https://jackbrayan.com/support/
+- Plan du site: https://jackbrayan.com/sitemap.xml
