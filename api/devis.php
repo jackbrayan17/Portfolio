@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require_once __DIR__ . '/jb-core.php';
 
 const DEVIS_FROM_EMAIL = 'automatisation@jackbrayan.com';
 const DEVIS_FROM_NAME = 'Jack Brayan — Automatisation';
@@ -156,6 +157,13 @@ $sourceUrl = clean_value($_SERVER['HTTP_REFERER'] ?? PAGE_URL, 300);
 $remoteAddress = clean_value($_SERVER['REMOTE_ADDR'] ?? 'Unknown', 80);
 
 $quote = build_quote($needs, $budget, $lang);
+
+jb_store_lead([
+    'reference' => $submissionId, 'service_type' => 'automation', 'name' => $company,
+    'company' => $company, 'email' => $email, 'phone' => $phone, 'budget' => $budget,
+    'source' => $source, 'estimate' => $quote['total'],
+    'details' => ['sector'=>$sector, 'team_size'=>$teamSize, 'needs'=>$needs, 'priority'=>$priority, 'start_timing'=>$startTiming, 'message'=>$message],
+]);
 
 $clientRows = [
     FIELD_LABELS[$lang]['company'] => $company,
